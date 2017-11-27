@@ -1,0 +1,493 @@
+body{
+  padding-top: 50px;
+  font-family: 'Saira', sans-serif;
+}
+#header{
+  text-align: center;
+}
+/*******************************************************************************
+                                    Index-Intro -- Banner
+*******************************************************************************/
+.index-intro{
+  width: 100%;
+  background-image: url("../img/forest.jpeg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+.index-intro h2{
+  color: #fff;
+  font-family: "Lobster";
+  font-size: 63px;
+  font-weight: bold;
+  text-align: center;
+  padding-top: 150px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+.index-intro h1{
+  color: #fff;
+  font-size: 26px;
+  text-align: center;
+  line-height: 36px;
+  padding: 0px 10px;
+  margin-top: 4px;
+  margin-bottom: 20px;
+}
+.index-intro a{
+  display: block;
+  width: 200px;
+  border-radius: 4px;
+  background-color: #cc181e;
+  color: #fff;
+  font-size: 18px;
+  text-align: center;
+  text-decoration: none;
+  padding: 8px 0px;
+  margin: 0 auto;
+  margin-bottom: 150px;
+}
+/*******************************************************************************
+                                    index-info
+*******************************************************************************/
+.index-info{
+  width: 100%;
+  background-color: #fff;
+  padding-bottom: 60px;
+}
+.index-info h2{
+  color: #222;
+  font-size: 38px;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 50px;
+  margin-bottom: 0px;
+}
+.index-info p {
+  color:#222;
+  font-size: 18px;
+  text-align: center;
+  line-height: 30px;
+  margin-top: 30px;
+  margin-bottom: 0px;
+  padding: 0px 10px;
+}
+
+/*******************************************************************************
+                                    tutorials
+*******************************************************************************/
+.index-courses{
+  width: 100%;
+  background-color: #f1f2f7;
+  padding-bottom: 60px;
+}
+.index-courses h2{
+  color: #222;
+  font-size: 38px;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 50px;
+  margin-bottom: 0px;
+}
+.index-courses .index-courses-subheader{
+  color: #222;
+  font-size: 18px;
+  text-align: center;
+  line-height: 30px;
+  margin-top: 10px;
+  margin-bottom: 40px;
+  padding: 0px 10px;
+}
+.index-courses p {
+  text-align: center;
+}
+.kapitel-auswahl{
+  margin-top: 45px;
+}
+.kapitel-auswahl li{
+  list-style: none;
+}
+/*******************************************************************************
+                                    Raspberry-Pi
+*******************************************************************************/
+
+.raspberry-pi-tutorials a{
+  text-decoration: none;
+}
+.raspberry-pi-tutorials .box-content-left{
+  box-shadow: 2px 2px 0px black;
+  border-radius: 4px;
+  color: #333;
+}
+.raspberry-pi-tutorials .box-content-left p{
+  margin-top: 10px;
+  text-align: center;
+}
+.raspberry-pi-tutorials .box-content-right{
+  box-shadow: -2px 2px 0px black;
+  border-radius: 4px;
+  color: #333;
+}
+.raspberry-pi-tutorials .box-content-right:hover{
+  box-shadow: -2px 2px 0px grey;
+  transition: 200ms;
+  opacity: 0.8;
+}
+.raspberry-pi-tutorials .box-content-left:hover{
+  box-shadow: 2px 2px 0px grey;
+  transition: 200ms;
+  opacity: 0.8;
+}
+.raspberry-pi-tutorials .box-content-right p{
+  margin-top: 10px;
+  text-align: center;
+}
+.raspberry-pi-header{
+  width: 100%;
+  background-image: url("../img/forest.jpeg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+.raspberry-pi-header h2{
+  color: #fff;
+  font-family: "Lobster";
+  font-size: 63px;
+  font-weight: bold;
+  text-align: center;
+  padding-top: 100px;
+  padding-bottom: 0px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+.raspberry-pi-header h1{
+  color: #fff;
+  font-size: 32px;
+  text-align: center;
+  line-height: 36px;
+  padding: 0px 10px;
+  margin-top: 4px;
+  margin-bottom: 20px;
+  padding-bottom: 100px;
+}
+.raspberry-pi-tutorials{
+  width: 100%;
+  background-color: #f1f2f7;
+  padding-bottom: 60px;
+}
+.raspberry-pi-tutorials h2{
+  color: #222;
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 50px;
+  margin-bottom: 0px;
+}
+.getting-started-header{
+  width: 100%;
+  background-image: url("../img/forest.jpeg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+.getting-started-header h2{
+  color: #fff;
+  font-family: "Lobster";
+  font-size: 63px;
+  font-weight: bold;
+  text-align: center;
+  padding-top: 100px;
+  padding-bottom: 0px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+.getting-started-header h1{
+  color: #fff;
+  font-size: 32px;
+  text-align: center;
+  line-height: 36px;
+  padding: 0px 10px;
+  margin-top: 4px;
+  margin-bottom: 20px;
+  padding-bottom: 100px;
+}
+.tutorials-header{
+  width: 100%;
+  background-image: url("../img/forest.jpeg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+.tutorials-header h1{
+  color: #fff;
+  font-family: "Lobster";
+  font-size: 63px;
+  font-weight: bold;
+  text-align: center;
+  padding-top: 100px;
+  padding-bottom: 100px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+.webserver-erstellen{
+  width: 100%;
+  background-image: url("../img/web.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+.webserver-erstellen h2{
+  color: #fff;
+  font-family: "Lobster";
+  font-size: 63px;
+  font-weight: bold;
+  text-align: center;
+  padding-top: 100px;
+  padding-bottom: 0px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+.webserver-erstellen h1{
+  color: #fff;
+  font-size: 32px;
+  text-align: center;
+  line-height: 36px;
+  padding: 0px 10px;
+  margin-top: 4px;
+  margin-bottom: 20px;
+  padding-bottom: 100px;
+}
+/*******************************************************************************
+                                    Login / Register
+*******************************************************************************/
+.login h1{
+  color: #222;
+  font-size: 38px;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 50px;
+  padding: 30px;
+}
+.register h1{
+  color: #222;
+  font-size: 38px;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 50px;
+  padding: 30px;
+}
+form{
+  width: 50%;
+  margin: auto;
+}
+input[type=text], input[type=password], textarea {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+button.submitbtn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+}
+
+button.submitbtn:hover {
+    opacity: 0.8;
+}
+/*******************************************************************************
+                                    News
+*******************************************************************************/
+.news{
+  color: white;
+}
+.news-header{
+  width: 100%;
+  background-image: url("../img/forest.jpeg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+.news-header h1{
+  color: #fff;
+  font-family: "Lobster";
+  font-size: 63px;
+  font-weight: bold;
+  text-align: center;
+  padding-top: 100px;
+  padding-bottom: 100px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+.news .col-xs-6{
+  width: 50%;
+}
+.news .news1{
+  height: 200px;
+  background-color: red;
+
+}
+.news .news2{
+  height: 200px;
+  background-color: blue;
+}
+/*******************************************************************************
+                                    Blog
+*******************************************************************************/
+.blog-header{
+  width: 100%;
+  background-image: url("../img/forest.jpeg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+.blog-header h2{
+  color: #fff;
+  font-family: "Lobster";
+  font-size: 63px;
+  font-weight: bold;
+  text-align: center;
+  padding-top: 100px;
+  padding-bottom: 0px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+.blog-header h1{
+  color: #fff;
+  font-size: 32px;
+  text-align: center;
+  line-height: 36px;
+  padding: 0px 10px;
+  margin-top: 4px;
+  margin-bottom: 20px;
+  padding-bottom: 100px;
+}
+.blog-article{
+  width: 100%;
+  background-color: #f1f2f7;
+  padding-bottom: 60px;
+}
+.blog-article h2{
+  color: #222;
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 50px;
+  margin-bottom: 0px;
+}
+.blog-article a{
+  text-decoration: none;
+}
+.blog-article .box-content{
+  box-shadow: 2px 2px 2px black;
+  border-radius: 4px;
+  color: #333;
+  height: 100px;
+}
+.blog-article .box-content p{
+  margin-top: 10px;
+  text-align: center;
+}
+.blog-article .box-content:hover{
+  box-shadow: 2px 3px 10px black;
+  transition: 200ms;
+  opacity: 0.8;
+}
+.amazon-echo-dot-header{
+  width: 100%;
+  background-image: url("../img/forest.jpeg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+.amazon-echo-dot-header h2{
+  color: #fff;
+  font-family: "Lobster";
+  font-size: 63px;
+  font-weight: bold;
+  text-align: center;
+  padding-top: 100px;
+  padding-bottom: 0px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+.amazon-echo-dot-header h1{
+  color: #fff;
+  font-size: 32px;
+  text-align: center;
+  line-height: 36px;
+  padding: 0px 10px;
+  margin-top: 4px;
+  margin-bottom: 20px;
+  padding-bottom: 100px;
+}
+/*******************************************************************************
+                                    Über uns
+*******************************************************************************/
+.aboutus{
+  text-align: center;
+}
+.aboutus img{
+  margin: auto;
+  height: 100px;
+}
+/*******************************************************************************
+                                    Footer
+*******************************************************************************/
+footer{
+  background-color: #161819;
+  width: 100%;
+  height: 60px;
+  bottom: 0px;
+}
+footer .footer-box{
+  display: block;
+  margin: 0 auto;
+  text-align: center;
+}
+footer a p {
+  float: left;
+  line-height: 60px;
+  font-family: "Lobster";
+  font-size: 34px;
+  color: #fff;
+  text-transform: none;
+  margin-bottom: 0px;
+  float: left;
+}
+/*******************************************************************************
+                                    Media
+*******************************************************************************/
+@media (max-width: 600px) {
+
+	.index-courses .row .row div .index-courses-outerbox {
+		margin-bottom: 20px;
+	}
+  .index-intro a{
+    width: 100%;
+  }
+
+}
+@media screen and (max-width: 600px) {
+    span.psw {
+        display: block;
+        float: none;
+    }
+    .cancelbtn {
+        width: 100%;
+    }
+    form{
+        width: 100%;
+    }
+    .index-courses h2{
+      font-size: 14px;
+
+    }
+}

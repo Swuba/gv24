@@ -1,0 +1,42 @@
+body{
+    padding-top: 50px;
+    font-family: 'Saira', sans-serif;
+}
+.summonersearch{
+  width: 100%;
+}
+.summonersearch h1{
+  text-align: center;
+}
+.navbar-form.main{
+  text-align: center;
+}
+.summonerinfo{
+  margin-top: 25px;
+  text-align: center;
+}
+.lol-header{
+  width: 100%;
+  background-image: url("../img/Jinx_4.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+.lol-header h1{
+  color: #fff;
+  font-family: "Lobster";
+  font-size: 63px;
+  font-weight: bold;
+  text-align: center;
+  padding-top: 250px;
+
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+.lol-header form{
+  margin-top: 5px;
+  padding-bottom: 250px;
+}
+
+.summoner{
+}
