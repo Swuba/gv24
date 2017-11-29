@@ -26,7 +26,7 @@
                 <p><a href="tutorials/raspberry-pi-tutorials.php" class="btn btn-success">zum Tutorial &raquo;</a></p>
             </div>
             <div class="col-xs-6">
-                <h2>Programmierkrams</h2>
+                <h2>Programmierkrams1231231</h2>
                 <br>
                 <p>
                   (HTML, CSS, PHP, JSON, Python, MySql)
