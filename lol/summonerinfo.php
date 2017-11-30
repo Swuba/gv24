@@ -1,6 +1,6 @@
 ﻿<?php
 
-$api_key = 'RGAPI-3cfe5460-e809-4aee-9be4-a3660aeedf9a';
+$api_key = 'RGAPI-4a607434-5f08-4201-bafa-43b3a5f4c611';
 $summonerName = preg_replace("/ /", "%20", $_GET['summonername']);
 
 //SummonerInfo
@@ -36,7 +36,7 @@ if ($response['http_code'] == 404) {
 }
 function getChampionNameByID($championID)
 {
-  $result3 = json_decode(file_get_contents('https://ddragon.leagueoflegends.com/cdn/7.22.1/data/de_DE/champion.json'));
+  $result3 = json_decode(file_get_contents('https://ddragon.leagueoflegends.com/cdn/7.23.1/data/de_DE/champion.json'));
   foreach ($result3->data as $champ) {
     //echo $champ->key;
     if ($champ->key == $championID) {
@@ -45,7 +45,7 @@ function getChampionNameByID($championID)
   }
 }
 function getCurrentChampLevel($matchPlayerID, $championID){
-  $api_key = 'RGAPI-3cfe5460-e809-4aee-9be4-a3660aeedf9a';
+  $api_key = 'RGAPI-4a607434-5f08-4201-bafa-43b3a5f4c611';
   $result4 = json_decode(file_get_contents('https://euw1.api.riotgames.com/lol/champion-mastery/v3/champion-masteries/by-summoner/'.$matchPlayerID.'/by-champion/'.$championID.'?api_key='.$api_key));
   echo $result4->championPoints;
 }
@@ -170,14 +170,18 @@ function getCurrentChampLevel($matchPlayerID, $championID){
       <?php for ($i=0; $i < 5; $i++) {
         if ($summonerID == $result2->participants[$i]->summonerId) {
           ?>
-          <a href="summonerinfo.php?summonername=<?php echo $result2->participants[$i]->summonerName; ?>"><b><?php echo $result2->participants[$i]->summonerName; ?></b></a> - <b><?php getChampionNameByID($result2->participants[$i]->championId); ?></b><br>
+          <a href="summonerinfo.php?summonername=<?php echo $result2->participants[$i]->summonerName; ?>"><b><?php echo $result2->participants[$i]->summonerName; ?></b></a> - <b><?php getChampionNameByID($result2->participants[$i]->championId); ?></b>
+          <img height="32" width="32" src="http://ddragon.leagueoflegends.com/cdn/7.23.1/img/champion/<?php getChampionNameByID($result2->participants[$i]->championId);?>.png" alt="lul" />
+          <br>
           <a target="_blank" href="http://www.probuilds.net/champions/details/<?php getChampionNameByID($result2->participants[$i]->championId);?>">Probuilds</a> -
           <a target="_blank" href="https://www.mobafire.com/league-of-legends/<?php getChampionNameByID($result2->participants[$i]->championId);?>-guide">Mobafire</a><br>
           <br>
           <?php
         }else {
           ?>
-          <a href="summonerinfo.php?summonername=<?php echo $result2->participants[$i]->summonerName; ?>"><?php echo $result2->participants[$i]->summonerName?></a> - <?php getChampionNameByID($result2->participants[$i]->championId); ?><br>
+          <a href="summonerinfo.php?summonername=<?php echo $result2->participants[$i]->summonerName; ?>"><?php echo $result2->participants[$i]->summonerName?></a> - <?php getChampionNameByID($result2->participants[$i]->championId); ?>
+          <img height="32" width="32" src="http://ddragon.leagueoflegends.com/cdn/7.23.1/img/champion/<?php getChampionNameByID($result2->participants[$i]->championId);?>.png" alt="lul" />
+          <br>
           ChampionPoints: <?php getCurrentChampLevel($result2->participants[$i]->summonerId, $result2->participants[$i]->championId); ?>
           <br><br>
           <?php
@@ -191,14 +195,18 @@ function getCurrentChampLevel($matchPlayerID, $championID){
      <?php for ($i=5; $i < 10; $i++) {
        if ($summonerID == $result2->participants[$i]->summonerId) {
          ?>
-         <a href="summonerinfo.php?summonername=<?php echo $result2->participants[$i]->summonerName; ?>"><b><?php echo $result2->participants[$i]->summonerName; ?></b></a> - <b><?php getChampionNameByID($result2->participants[$i]->championId); ?></b><br>
+         <a href="summonerinfo.php?summonername=<?php echo $result2->participants[$i]->summonerName; ?>"><b><?php echo $result2->participants[$i]->summonerName; ?></b></a> - <b><?php getChampionNameByID($result2->participants[$i]->championId); ?></b>
+         <img height="32" width="32" src="http://ddragon.leagueoflegends.com/cdn/7.23.1/img/champion/<?php getChampionNameByID($result2->participants[$i]->championId);?>.png" alt="lul" />
+         <br>
          <a target="_blank" href="http://www.probuilds.net/champions/details/<?php getChampionNameByID($result2->participants[$i]->championId);?>">Probuilds</a> -
          <a target="_blank" href="https://www.mobafire.com/league-of-legends/<?php getChampionNameByID($result2->participants[$i]->championId);?>-guide">Mobafire</a><br>
          <br>
          <?php
        }else {
          ?>
-          <a href="summonerinfo.php?summonername=<?php echo $result2->participants[$i]->summonerName; ?>"><?php echo $result2->participants[$i]->summonerName?></a> - <?php getChampionNameByID($result2->participants[$i]->championId); ?><br>
+          <a href="summonerinfo.php?summonername=<?php echo $result2->participants[$i]->summonerName; ?>"><?php echo $result2->participants[$i]->summonerName?></a> - <?php getChampionNameByID($result2->participants[$i]->championId); ?>
+          <img height="32" width="32" src="http://ddragon.leagueoflegends.com/cdn/7.23.1/img/champion/<?php getChampionNameByID($result2->participants[$i]->championId);?>.png" alt="lul" />
+          <br>
           ChampionPoints: <?php getCurrentChampLevel($result2->participants[$i]->summonerId, $result2->participants[$i]->championId); ?>
          <br><br>
          <?php

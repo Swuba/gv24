@@ -25,6 +25,7 @@ body{
 .lol-header h1{
   color: #fff;
   font-family: "Lobster";
+  text-shadow: 5px 0 5px black;
   font-size: 63px;
   font-weight: bold;
   text-align: center;
@@ -39,4 +40,5 @@ body{
 }
 
 .summoner{
+
 }
