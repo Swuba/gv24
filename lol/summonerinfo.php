@@ -34,36 +34,82 @@ if ($response['http_code'] == 404) {
   $gameType = $result2->gameType;
   $gameQueueConfigId = $result2->gameQueueConfigId;
 
+
+
 //Namen von jedem Spieler von Team1
   $team1 = [
-    1 => $result2->participants[0]->summonerName,
-    2 => $result2->participants[1]->summonerName,
-    3 => $result2->participants[2]->summonerName,
-    4 => $result2->participants[3]->summonerName,
-    5 => $result2->participants[4]->summonerName,
+    1 => [
+      "summonerName" => $result2->participants[0]->summonerName,
+      "summonerId" => $result2->participants[0]->summonerId,
+      "championId" => $result2->participants[0]->championId,
+      "spell1Id" => $result2->participants[0]->spell1Id,
+      "spell2Id" => $result2->participants[0]->spell2Id
+    ],
+    2 => [
+      "summonerName" => $result2->participants[1]->summonerName,
+      "summonerId" => $result2->participants[1]->summonerId,
+      "championId" => $result2->participants[1]->championId,
+      "spell1Id" => $result2->participants[1]->spell1Id,
+      "spell2Id" => $result2->participants[1]->spell2Id
+    ],
+    3 => [
+      "summonerName" => $result2->participants[2]->summonerName,
+      "summonerId" => $result2->participants[2]->summonerId,
+      "championId" => $result2->participants[2]->championId,
+      "spell1Id" => $result2->participants[2]->spell1Id,
+      "spell2Id" => $result2->participants[2]->spell2Id
+    ],
+    4 => [
+      "summonerName" => $result2->participants[3]->summonerName,
+      "summonerId" => $result2->participants[3]->summonerId,
+      "championId" => $result2->participants[3]->championId,
+      "spell1Id" => $result2->participants[3]->spell1Id,
+      "spell2Id" => $result2->participants[3]->spell2Id
+    ],
+    5 => [
+      "summonerName" => $result2->participants[4]->summonerName,
+      "summonerId" => $result2->participants[4]->summonerId,
+      "championId" => $result2->participants[4]->championId,
+      "spell1Id" => $result2->participants[4]->spell1Id,
+      "spell2Id" => $result2->participants[4]->spell2Id
+    ],
   ];
   $team2 = [
-    1 => $result2->participants[5]->summonerName,
-    2 => $result2->participants[6]->summonerName,
-    3 => $result2->participants[7]->summonerName,
-    4 => $result2->participants[8]->summonerName,
-    5 => $result2->participants[9]->summonerName
-  ];
-
-//Namen von jedem Spieler von Team2
-  $team1Id = [
-    1 => $result2->participants[0]->summonerId,
-    2 => $result2->participants[1]->summonerId,
-    3 => $result2->participants[2]->summonerId,
-    4 => $result2->participants[3]->summonerId,
-    5 => $result2->participants[4]->summonerId
-  ];
-  $team2Id = [
-    1 => $result2->participants[5]->summonerId,
-    2 => $result2->participants[6]->summonerId,
-    3 => $result2->participants[7]->summonerId,
-    4 => $result2->participants[8]->summonerId,
-    5 => $result2->participants[9]->summonerId
+    1 => [
+      "summonerName" => $result2->participants[5]->summonerName,
+      "summonerId" => $result2->participants[5]->summonerId,
+      "championId" => $result2->participants[5]->championId,
+      "spell1Id" => $result2->participants[5]->spell1Id,
+      "spell2Id" => $result2->participants[5]->spell2Id
+    ],
+    2 => [
+      "summonerName" => $result2->participants[6]->summonerName,
+      "summonerId" => $result2->participants[6]->summonerId,
+      "championId" => $result2->participants[6]->championId,
+      "spell1Id" => $result2->participants[6]->spell1Id,
+      "spell2Id" => $result2->participants[6]->spell2Id
+    ],
+    3 => [
+      "summonerName" => $result2->participants[7]->summonerName,
+      "summonerId" => $result2->participants[7]->summonerId,
+      "championId" => $result2->participants[7]->championId,
+      "spell1Id" => $result2->participants[7]->spell1Id,
+      "spell2Id" => $result2->participants[7]->spell2Id
+    ],
+    4 => [
+      "summonerName" => $result2->participants[8]->summonerName,
+      "summonerId" => $result2->participants[8]->summonerId,
+      "championId" => $result2->participants[8]->championId,
+      "spell1Id" => $result2->participants[8]->spell1Id,
+      "spell2Id" => $result2->participants[8]->spell2Id
+    ],
+    5 => [
+      "summonerName" => $result2->participants[9]->summonerName,
+      "summonerId" => $result2->participants[9]->summonerId,
+      "championId" => $result2->participants[9]->championId,
+      "spell1Id" => $result2->participants[9]->spell1Id,
+      "spell2Id" => $result2->participants[9]->spell2Id
+    ]
   ];
 }
 function getChampionNameByID($championID)
@@ -77,7 +123,7 @@ function getChampionNameByID($championID)
   }
 }
 function getCurrentChampLevel($matchPlayerID, $championID){
-  $api_key = 'RGAPI-4a607434-5f08-4201-bafa-43b3a5f4c611';
+  include 'apikey.php';
   $result4 = json_decode(file_get_contents('https://euw1.api.riotgames.com/lol/champion-mastery/v3/champion-masteries/by-summoner/'.$matchPlayerID.'/by-champion/'.$championID.'?api_key='.$api_key));
   echo $result4->championPoints;
 }
@@ -145,7 +191,6 @@ function getCurrentChampLevel($matchPlayerID, $championID){
   <div class="container">
     <div class="row">
       <div class="col-xs-3">
-
       </div>
       <div class="col-xs-6">
         <div class="summoner">
@@ -171,22 +216,27 @@ function getCurrentChampLevel($matchPlayerID, $championID){
       </div>
       <div class="col-xs-4">
         <div class="team1">
-          <h1>TEAM1</h1>
+          <div class="blueheader">
+            <h1 class="blueteam">Blaues Team</h1>
+
+          </div>
           <br>
           <?php
-          //echo $team1[1];
           for ($i=1; $i < 6; $i++) {
-            if ($summonerID == $team1Id[$i]) {
+            if ($summonerID == $team1[$i]["summonerId"]) {
               ?>
-              <a href="http://filzknoetche.de/lol/summonerinfo.php?summonername=<?php echo $team1[$i];?>"><b><?php echo $team1[$i];?></b></a>
+              <a href="http://localhost/lol/summonerinfo.php?summonername=<?php echo $team1[$i]["summonerName"];?>">
+                <b class="currentPlayerBlue"><?php echo $team1[$i]["summonerName"];?></b></a> - <?php getChampionNameByID($team1[$i]["championId"]) ?><br>
+                <?php echo getCurrentChampLevel($team1[$i]["summonerId"], $team1[$i]["championId"]); ?>
 
                 <br><br>
 
               <?php
             }else {
               ?>
-              <a href="http://filzknoetche.de/lol/summonerinfo.php?summonername=<?php echo $team1[$i];?>"><?php echo $team1[$i];?></a>
-
+              <a href="http://localhost/lol/summonerinfo.php?summonername=<?php echo $team1[$i]["summonerName"];?>">
+                <?php echo $team1[$i]["summonerName"];?></a> - <?php getChampionNameByID($team1[$i]["championId"]) ?><br>
+                <?php echo getCurrentChampLevel($team1[$i]["summonerId"], $team1[$i]["championId"]); ?>
                 <br><br>
 
               <?php
@@ -199,20 +249,27 @@ function getCurrentChampLevel($matchPlayerID, $championID){
       <div class="col-xs-4">
 
         <div class="team2">
-          <h1>TEAM2</h1>
+          <div class="redheader">
+            <h1 class="redteam">Rotes Team</h1>
+          </div>
+
           <br>
           <?php
           for ($i=1; $i < 6; $i++) {
-            if ($summonerID == $team2Id[$i]) {
+            if ($summonerID == $team2[$i]["summonerId"]) {
               ?>
-              <a href="http://filzknoetche.de/lol/summonerinfo.php?summonername=<?php echo $team2[$i];?>"><b><?php echo $team2[$i];?></b></a>
+              <a href="http://localhost/lol/summonerinfo.php?summonername=<?php echo $team2[$i]["summonerName"];?>">
+                <b class="currentPlayerRed"><?php echo $team2[$i]["summonerName"];?></b></a> - <?php getChampionNameByID($team2[$i]["championId"]) ?><br>
+                <?php echo getCurrentChampLevel($team1[$i]["summonerId"], $team1[$i]["championId"]); ?>
 
                 <br><br>
 
               <?php
             }else {
               ?>
-              <a href="http://filzknoetche.de/lol/summonerinfo.php?summonername=<?php echo $team2[$i];?>"><?php echo $team2[$i];?></a>
+              <a href="http://localhost/lol/summonerinfo.php?summonername=<?php echo $team2[$i]["summonerName"];?>">
+                <?php echo $team2[$i]["summonerName"];?></a> - <?php getChampionNameByID($team2[$i]["championId"]) ?><br>
+                <?php echo getCurrentChampLevel($team1[$i]["summonerId"], $team1[$i]["championId"]); ?>
 
                 <br><br>
 
@@ -229,6 +286,11 @@ function getCurrentChampLevel($matchPlayerID, $championID){
   </article>
   <?php
 }else {
-  echo "nicht ingame";
+  ?>
+  <br>
+  <div class="alert alert-danger">
+    Der Spieler befindet sich in keinem Spiel.
+</div>
+  <?php
 }
  ?>

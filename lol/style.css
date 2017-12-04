@@ -1,6 +1,10 @@
 body{
     padding-top: 50px;
     font-family: 'Saira', sans-serif;
+    width: 100%;
+}
+.row{
+  margin:0px;
 }
 .summonersearch{
   width: 100%;
@@ -38,15 +42,48 @@ body{
   margin-top: 5px;
   padding-bottom: 250px;
 }
+.test a{
+  color: black;
+}
+.test b.currentPlayerRed{
+  color: #c41414;
+}
+.test b.currentPlayerBlue{
+  color: #1558c4;
+}
+.test{
+  font-size: 24px;
+}
 .test .team1{
   margin: auto;
   text-align: center;
   height: 200px;
-  width: 600px;
+  width: 100%;
 }
 .test .team2{
   margin: auto;
   text-align: center;
   height: 200px;
-  width: 600px;
+  width: 100%;
+}
+.blueheader{
+  margin: auto;
+  width: 250px;
+  border-radius: 25px;
+  height: 50px;
+  background-color: #1558c4;
+  color: white;
+}
+.redheader{
+  margin: auto;
+  width: 250px;
+  border-radius: 25px;
+  height: 50px;
+  background-color: #c41414;
+  color: white;
+}
+.alert-danger{
+  margin: auto;
+  width: 500px;
+  text-align: center;
 }
