@@ -38,7 +38,15 @@ body{
   margin-top: 5px;
   padding-bottom: 250px;
 }
-
-.summoner{
-
+.test .team1{
+  margin: auto;
+  text-align: center;
+  height: 200px;
+  width: 600px;
+}
+.test .team2{
+  margin: auto;
+  text-align: center;
+  height: 200px;
+  width: 600px;
 }
