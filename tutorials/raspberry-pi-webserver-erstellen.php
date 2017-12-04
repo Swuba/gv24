@@ -46,17 +46,30 @@
         </p>
         <p>Danach installieren wir Apache2. Dies macht ihr mit <br><code>sudo apt-get install apache2 </code></p>
         <p>Die installation von Apache sollte nun fertig sein. Um dies zu überprüfen
-          gehst du einfach in deinen Browser und gibst die IP-Adresse von deinem Raspberry Pi´s ein oder <a href="http:raspberrypi/ ">http:raspberrypi/ </a>
+          gehst du einfach in deinen Browser und gibst die IP-Adresse von deinem Raspberry Pi´s ein oder <a href="http:raspberrypi/ ">http:raspberrypi/ </a>. Dazu musst du nur im selben Netzwerk sein.
         </p>
         </div>
         <hr>
         <br>
         <div class="php">
-        <h2 style="text-align: center;">PHP5 Installieren</h2>
-        <p>Die Installation von PHP5 ist genauso einfach wie die von Apache2</p>
+        <h2 style="text-align: center;">PHP7 Installieren</h2>
+        <p>Die Installation von PHP7 ist genauso einfach wie die von Apache2</p>
         <p>
-          Beginned mit<br>
-          <code>sudo apt-get install php5</code>
+          Beginnenen tun wir mit<br>
+          <code>sudo apt-get install php7.0</code><br>
+          Falls dies nicht funktioniert, müssen wir zuerst noch die Sourcelist bearbeiten, dass php7 installiert werden kann.<br>
+          Zuerst:<br>
+          <code>sudo nano /etc/apt/sources.list</code><br><br>
+          Dann fügt ihr am ende der Datei:<br>
+          <code>deb http://repozytorium.mati75.eu/raspbian jessie-backports main contrib non-free</code><br>
+          ein.<br><br>
+          Die Datei mit <code>Strg+x</code> schließen und mit <code>j</code> die Änderungen übernehmen. Anschließend muss die Paketverwaltung noch upgedatet und php nun installiert werden:<br>
+          <code>sudo nano apt-get update</code><br>
+          <code>sudo apt-get install php7.0</code><br>
+          <br>
+          Nach einem Neustart von Apache:<br>
+          <code>sudo /etc/init.d/apache2 restart</code><br><br>
+          ist php installiert.
         </p>
 
         <p>Wenn die installation abgeschlossen ist, können wir dies auch testen, indem wir
@@ -87,7 +100,7 @@
           und zu benutzen. Mit Datenbanken können wir z.B. Benutzerdaten oder Temperaturen speichern.<br>
         </p>
         <p>Die installation beginnen wir mit <br>
-        <code>sudo apt-get install mysql-server php5-mysql mysql-client</code>
+        <code>sudo apt-get install mysql-server mysql-client</code>
         </p>
         <p>Danach werden wir aufgefordet ein Passwort einzugeben und es danach
         nochmal zu bestätigen</p>

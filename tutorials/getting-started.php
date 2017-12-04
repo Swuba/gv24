@@ -28,11 +28,12 @@
         </p>
         <p>
         <ul class="kapitel-auswahl">
+          <h3>Hardware</h3>
           <li><a href="#">Raspberry Pi 3*</a></li>
           <li><a href="#">Netzteil*</a></li>
           <li><a href="#">SD-Karte*</a></li>
-          <li><a href="#">Gehäuse</a>(optional)</li>
-          <li><a href="#">Lan-Kabel</a>(Falls kein W-lan)</li>
+          <li><a href="#">Gehäuse*</a>(optional)</li>
+          <li><a href="#">Lan-Kabel*</a>(Falls kein W-lan)</li>
         </ul>
       </p>
         <br><hr>
@@ -41,10 +42,7 @@
         <p>
           
         </p>
-        <p>Danach installieren wir Apache2. Dies macht ihr mit <br><code>sudo apt-get install apache2 </code></p>
-        <p>Die installation von Apache sollte nun fertig sein. Um dies zu überprüfen
-          gehst du einfach in deinen Browser und gibst die IP-Adresse von deinem Raspberry Pi´s ein oder <a href="http:raspberrypi/ ">http:raspberrypi/ </a>
-        </p>
+
         </div>
         <hr>
         <br>
