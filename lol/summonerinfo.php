@@ -33,10 +33,13 @@ if ($response['http_code'] == 404) {
   $gameMode = $result2->gameMode;
   $gameType = $result2->gameType;
   $gameQueueConfigId = $result2->gameQueueConfigId;
-
-
-
-//Namen von jedem Spieler von Team1
+/*
+summonerName: Name vom Spieler
+summonerID: Die SummonerID vom Spieler
+championID: Die championID des aktuellen gespielten Champion
+spell1Id: spell1 //flash, heal
+spell2Id: spell2 //flash, heal
+*/
   $team1 = [
     1 => [
       "summonerName" => $result2->participants[0]->summonerName,
@@ -122,10 +125,40 @@ function getChampionNameByID($championID)
     }
   }
 }
+
 function getCurrentChampLevel($matchPlayerID, $championID){
   include 'apikey.php';
-  $result4 = json_decode(file_get_contents('https://euw1.api.riotgames.com/lol/champion-mastery/v3/champion-masteries/by-summoner/'.$matchPlayerID.'/by-champion/'.$championID.'?api_key='.$api_key));
-  echo $result4->championPoints;
+  $ch = curl_init();
+  curl_setopt($ch, CURLOPT_URL,'https://euw1.api.riotgames.com/lol/champion-mastery/v3/champion-masteries/by-summoner/'.$matchPlayerID.'/by-champion/'.$championID.'?api_key='.$api_key);
+  curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 2);
+  curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+  curl_setopt($ch, CURLOPT_TIMEOUT, 300);
+  $content = curl_exec( $ch );
+  $response = curl_getinfo( $ch );
+  curl_close ( $ch );
+  if ($response['http_code'] == 404) {
+    $alreadyPlayed = false;
+    echo "First Game";
+  }else {
+    $result4 = json_decode(file_get_contents('https://euw1.api.riotgames.com/lol/champion-mastery/v3/champion-masteries/by-summoner/'.$matchPlayerID.'/by-champion/'.$championID.'?api_key='.$api_key));
+    echo $result4->championPoints;
+  }
+
+}
+
+function getPlayerRank($summonerId){
+  include 'apikey.php';
+  $result5 = json_decode(file_get_contents('https://euw1.api.riotgames.com/lol/league/v3/positions/by-summoner/'.$summonerId.'?api_key='.$api_key));
+  if (!isset($result5[0])) {
+    echo "Kein Rank";
+  }else if ($result5[0]->queueType == "RANKED_SOLO_5x5") {
+    echo $result5[0]->tier.' '.$result5[0]->rank;
+  }else if($result5[1]->queueType == "RANKED_SOLO_5x5"){
+    echo $result5[1]->tier.' '.$result5[1]->rank;
+  }else if($result5[2]->queueType == "RANKED_SOLO_5x5"){
+    echo $result5[2]->tier.' '.$result5[2]->rank;
+  }
+  //echo $result5[1]->queueType;
 }
 
 //$gamesPlayed = $wins + $losses;
@@ -209,78 +242,94 @@ function getCurrentChampLevel($matchPlayerID, $championID){
 </article>
 <?php if($ingame){
   ?>
-  <article class="test">
-    <div class="row">
-      <div class="col-xs-2">
-
-      </div>
-      <div class="col-xs-4">
-        <div class="team1">
-          <div class="blueheader">
-            <h1 class="blueteam">Blaues Team</h1>
-
-          </div>
-          <br>
-          <?php
-          for ($i=1; $i < 6; $i++) {
-            if ($summonerID == $team1[$i]["summonerId"]) {
-              ?>
-              <a href="http://localhost/lol/summonerinfo.php?summonername=<?php echo $team1[$i]["summonerName"];?>">
-                <b class="currentPlayerBlue"><?php echo $team1[$i]["summonerName"];?></b></a> - <?php getChampionNameByID($team1[$i]["championId"]) ?><br>
-                <?php echo getCurrentChampLevel($team1[$i]["summonerId"], $team1[$i]["championId"]); ?>
-
-                <br><br>
-
-              <?php
-            }else {
-              ?>
-              <a href="http://localhost/lol/summonerinfo.php?summonername=<?php echo $team1[$i]["summonerName"];?>">
-                <?php echo $team1[$i]["summonerName"];?></a> - <?php getChampionNameByID($team1[$i]["championId"]) ?><br>
-                <?php echo getCurrentChampLevel($team1[$i]["summonerId"], $team1[$i]["championId"]); ?>
-                <br><br>
-
-              <?php
+  <article class="currentGame">
+    <div class="container currentGame">
+      <div class="row">
+        <div class="col-xs-6">
+          <div class="team1">
+          <table>
+            <thead>
+            <tr>
+              <th>Name</th>
+              <th>Champion</th>
+              <th>ChampionPoints</th>
+              <th>Rank</th>
+              <th>Guides</th>
+            </tr>
+            </thead>
+            <?php
+            for ($i=1; $i < 6; $i++) {
+              if($summonerID == $team1[$i]["summonerId"]){
+                ?>
+                <tr>
+                  <td><b><?php echo $team1[$i]["summonerName"]; ?></b></td>
+                  <td><img height="32" width="32" src="http://ddragon.leagueoflegends.com/cdn/7.23.1/img/champion/<?php getChampionNameByID($team1[$i]["championId"]);?>.png" alt="lul" /><?php echo getChampionNameByID($team1[$i]["championId"]); ?></td>
+                  <td><?php echo getCurrentChampLevel($team1[$i]["summonerId"], $team1[$i]["championId"]); ?></td>
+                  <td><?php echo getPlayerRank($team1[$i]["summonerId"]); ?></td>
+                  <td><a target="_blank" href="http://www.probuilds.net/champions/details/<?php getChampionNameByID($team1[$i]["championId"]);?>">Probuilds</a>
+                  <a target="_blank" href="https://www.mobafire.com/league-of-legends/<?php getChampionNameByID($team1[$i]["championId"]);?>-guide">Mobafire</a></td>
+                </tr>
+                <?php
+              }else {
+                ?>
+                <tr>
+                  <td><?php echo $team1[$i]["summonerName"]; ?></td>
+                  <td><img height="32" width="32" src="http://ddragon.leagueoflegends.com/cdn/7.23.1/img/champion/<?php getChampionNameByID($team1[$i]["championId"]);?>.png" alt="lul" /><?php echo getChampionNameByID($team1[$i]["championId"]); ?></td>
+                  <td><?php echo getCurrentChampLevel($team1[$i]["summonerId"], $team1[$i]["championId"]); ?></td>
+                  <td><?php echo getPlayerRank($team1[$i]["summonerId"]); ?></td>
+                  <td><a target="_blank" href="http://www.probuilds.net/champions/details/<?php getChampionNameByID($team1[$i]["championId"]);?>">Probuilds</a>
+                  <a target="_blank" href="https://www.mobafire.com/league-of-legends/<?php getChampionNameByID($team1[$i]["championId"]);?>-guide">Mobafire</a></td>
+                </tr>
+                <?php
+              }
             }
-          }
-           ?>
-        </div>
+             ?>
 
-      </div>
-      <div class="col-xs-4">
-
-        <div class="team2">
-          <div class="redheader">
-            <h1 class="redteam">Rotes Team</h1>
+          </table>
           </div>
-
-          <br>
-          <?php
-          for ($i=1; $i < 6; $i++) {
-            if ($summonerID == $team2[$i]["summonerId"]) {
-              ?>
-              <a href="http://localhost/lol/summonerinfo.php?summonername=<?php echo $team2[$i]["summonerName"];?>">
-                <b class="currentPlayerRed"><?php echo $team2[$i]["summonerName"];?></b></a> - <?php getChampionNameByID($team2[$i]["championId"]) ?><br>
-                <?php echo getCurrentChampLevel($team1[$i]["summonerId"], $team1[$i]["championId"]); ?>
-
-                <br><br>
-
-              <?php
-            }else {
-              ?>
-              <a href="http://localhost/lol/summonerinfo.php?summonername=<?php echo $team2[$i]["summonerName"];?>">
-                <?php echo $team2[$i]["summonerName"];?></a> - <?php getChampionNameByID($team2[$i]["championId"]) ?><br>
-                <?php echo getCurrentChampLevel($team1[$i]["summonerId"], $team1[$i]["championId"]); ?>
-
-                <br><br>
-
-              <?php
-            }
-          }
-           ?>
         </div>
-      </div>
-      <div class="col-xs-2">
-
+        <div class="col-xs-6">
+          <div class="team2">
+          <table>
+            <thead>
+            <tr>
+              <th>Name</th>
+              <th>Champion</th>
+              <th>ChampionPoints</th>
+              <th>Rank</th>
+              <th>Guides</th>
+            </tr>
+            </thead>
+            <?php
+            for ($i=1; $i < 6; $i++) {
+              if($summonerID == $team2[$i]["summonerId"]){
+                ?>
+                <tr>
+                  <td><b><?php echo $team2[$i]["summonerName"]; ?></b></td>
+                  <td><img height="32" width="32" src="http://ddragon.leagueoflegends.com/cdn/7.23.1/img/champion/<?php getChampionNameByID($team1[$i]["championId"]);?>.png" alt="lul" /><?php echo getChampionNameByID($team2[$i]["championId"]); ?></td>
+                  <td><?php echo getCurrentChampLevel($team2[$i]["summonerId"], $team2[$i]["championId"]); ?></td>
+                  <td><?php echo getPlayerRank($team2[$i]["summonerId"]); ?></td>
+                  <td><a target="_blank" href="http://www.probuilds.net/champions/details/<?php getChampionNameByID($team2[$i]["championId"]);?>">Probuilds</a>
+                  <a target="_blank" href="https://www.mobafire.com/league-of-legends/<?php getChampionNameByID($team2[$i]["championId"]);?>-guide">Mobafire</a></td>
+                </tr>
+                <?php
+              }else {
+                ?>
+                <tr>
+                  <td><?php echo $team2[$i]["summonerName"]; ?></td>
+                  <td><img height="32" width="32" src="http://ddragon.leagueoflegends.com/cdn/7.23.1/img/champion/<?php getChampionNameByID($team1[$i]["championId"]);?>.png" alt="lul" /><?php echo getChampionNameByID($team2[$i]["championId"]); ?></td>
+                  <td><?php echo getCurrentChampLevel($team2[$i]["summonerId"], $team2[$i]["championId"]); ?></td>
+                  <td><?php echo getPlayerRank($team2[$i]["summonerId"]); ?></td>
+                  <td><a target="_blank" href="http://www.probuilds.net/champions/details/<?php getChampionNameByID($team2[$i]["championId"]);?>">Probuilds</a>
+                  <a target="_blank" href="https://www.mobafire.com/league-of-legends/<?php getChampionNameByID($team2[$i]["championId"]);?>-guide">Mobafire</a></td>
+                </tr>
+                <?php
+              }
+            }
+             ?>
+          </table>
+          </div>
+        </div>
       </div>
     </div>
   </article>
