@@ -146,6 +146,8 @@ function getChampionNameByID($championID)
         echo "TahmKench";
       }elseif ($champ->name == "Xin Zhao") {
         echo "XinZhao";
+      }elseif ($champ->name == "Twisted Fate") {
+        echo "TwistedFate";
       }else {
         echo $champ->name;
       }
