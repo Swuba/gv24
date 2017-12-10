@@ -151,13 +151,14 @@ function getPlayerRank($summonerId){
   $result5 = json_decode(file_get_contents('https://euw1.api.riotgames.com/lol/league/v3/positions/by-summoner/'.$summonerId.'?api_key='.$api_key));
   if (!isset($result5[0])) {
     echo "Kein Rank";
-  }else if ($result5[0]->queueType == "RANKED_SOLO_5x5") {
-    echo $result5[0]->tier.' '.$result5[0]->rank;
-  }else if($result5[1]->queueType == "RANKED_SOLO_5x5"){
-    echo $result5[1]->tier.' '.$result5[1]->rank;
-  }else if($result5[2]->queueType == "RANKED_SOLO_5x5"){
-    echo $result5[2]->tier.' '.$result5[2]->rank;
+  }else{
+    
+    if ($result5[0]->queueType == "RANKED_SOLO_5x5") {
+      echo $result5[0]->tier.' '.$result5[0]->rank;
+    }
   }
+
+
   //echo $result5[1]->queueType;
 }
 
@@ -252,7 +253,7 @@ function getPlayerRank($summonerId){
             <tr>
               <th>Name</th>
               <th>Champion</th>
-              <th>ChampionPoints</th>
+              <th>Champion Points</th>
               <th>Rank</th>
               <th>Guides</th>
             </tr>
@@ -295,7 +296,7 @@ function getPlayerRank($summonerId){
             <tr>
               <th>Name</th>
               <th>Champion</th>
-              <th>ChampionPoints</th>
+              <th>Champion Points</th>
               <th>Rank</th>
               <th>Guides</th>
             </tr>
@@ -305,8 +306,8 @@ function getPlayerRank($summonerId){
               if($summonerID == $team2[$i]["summonerId"]){
                 ?>
                 <tr>
-                  <td><b><?php echo $team2[$i]["summonerName"]; ?></b></td>
-                  <td><img height="32" width="32" src="http://ddragon.leagueoflegends.com/cdn/7.23.1/img/champion/<?php getChampionNameByID($team1[$i]["championId"]);?>.png" alt="lul" /><?php echo getChampionNameByID($team2[$i]["championId"]); ?></td>
+                  <td><a href="summonerinfo.php?summonername=<?php echo $team2[$i]["summonerName"]; ?>"><b><?php echo $team2[$i]["summonerName"]; ?></b></a></td>
+                  <td><img height="32" width="32" src="http://ddragon.leagueoflegends.com/cdn/7.23.1/img/champion/<?php getChampionNameByID($team2[$i]["championId"]);?>.png" alt="lul" /><?php echo getChampionNameByID($team2[$i]["championId"]); ?></td>
                   <td><?php echo getCurrentChampLevel($team2[$i]["summonerId"], $team2[$i]["championId"]); ?></td>
                   <td><?php echo getPlayerRank($team2[$i]["summonerId"]); ?></td>
                   <td><a target="_blank" href="http://www.probuilds.net/champions/details/<?php getChampionNameByID($team2[$i]["championId"]);?>">Probuilds</a>
@@ -316,8 +317,8 @@ function getPlayerRank($summonerId){
               }else {
                 ?>
                 <tr>
-                  <td><?php echo $team2[$i]["summonerName"]; ?></td>
-                  <td><img height="32" width="32" src="http://ddragon.leagueoflegends.com/cdn/7.23.1/img/champion/<?php getChampionNameByID($team1[$i]["championId"]);?>.png" alt="lul" /><?php echo getChampionNameByID($team2[$i]["championId"]); ?></td>
+                  <td><a href="summonerinfo.php?summonername=<?php echo $team2[$i]["summonerName"]; ?>"><?php echo $team2[$i]["summonerName"]; ?></a></td>
+                  <td><img height="32" width="32" src="http://ddragon.leagueoflegends.com/cdn/7.23.1/img/champion/<?php getChampionNameByID($team2[$i]["championId"]);?>.png" alt="lul" /><?php echo getChampionNameByID($team2[$i]["championId"]); ?></td>
                   <td><?php echo getCurrentChampLevel($team2[$i]["summonerId"], $team2[$i]["championId"]); ?></td>
                   <td><?php echo getPlayerRank($team2[$i]["summonerId"]); ?></td>
                   <td><a target="_blank" href="http://www.probuilds.net/champions/details/<?php getChampionNameByID($team2[$i]["championId"]);?>">Probuilds</a>
