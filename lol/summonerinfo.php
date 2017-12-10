@@ -119,9 +119,36 @@ function getChampionNameByID($championID)
 {
   $result3 = json_decode(file_get_contents('https://ddragon.leagueoflegends.com/cdn/7.23.1/data/de_DE/champion.json'));
   foreach ($result3->data as $champ) {
-    //echo $champ->key;
     if ($champ->key == $championID) {
-      echo $champ->name;
+      if ($champ->name == "Lee Sin") {
+        echo "LeeSin";
+      }else if($champ->name == "Kog'Maw"){
+        echo "KogMaw";
+      }elseif ($champ->name == "Miss Fortune") {
+        echo "MissFortune";
+      }elseif ($champ->name == "Cho'Gath") {
+        echo "ChoGath";
+      }elseif ($champ->name == "Kha'Zix") {
+        echo "KhaZix";
+      }elseif ($champ->name == "Jarvan IV") {
+        echo "JarvanIV";
+      }elseif ($champ->name == "Vel'Koz") {
+        echo "VelKoz";
+      }elseif ($champ->name == "Dr. Mundo") {
+        echo "DrMundo";
+      }elseif ($champ->name == "Master Yi") {
+        echo "MasterYi";
+      }elseif ($champ->name == "Aurelion Sol") {
+        Echo "AurelionSol";
+      }elseif ($champ->name == "Rek'Sai") {
+        echo "RekSai";
+      }elseif ($champ->name == "Tahm Kench") {
+        echo "TahmKench";
+      }elseif ($champ->name == "Xin Zhao") {
+        echo "XinZhao";
+      }else {
+        echo $champ->name;
+      }
     }
   }
 }
@@ -152,9 +179,14 @@ function getPlayerRank($summonerId){
   if (!isset($result5[0])) {
     echo "Kein Rank";
   }else{
-    
     if ($result5[0]->queueType == "RANKED_SOLO_5x5") {
       echo $result5[0]->tier.' '.$result5[0]->rank;
+    }elseif ($result5[1]->queueType == "RANKED_SOLO_5x5") {
+      echo $result5[1]->tier.' '.$result5[0]->rank;
+    }elseif ($result5[2]->queueType == "RANKED_SOLO_5x5") {
+      echo $result5[2]->tier.' '.$result5[0]->rank;
+    }else {
+      echo "Nichts gefunden";
     }
   }
 
