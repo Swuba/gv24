@@ -6,7 +6,7 @@
     <div class="row">
       <div class="col-xs-12">
         <h2>Webserver auf dem Raspberry Pi erstellen</h2>
-        <h1>Apache, PHP, MySql,phpmyadmin und Ftp Schritt für Schritt installieren und einrichten</h1>
+        <h1>Apache, PHP7, MySql,phpmyadmin und Ftp Schritt für Schritt installieren und einrichten</h1>
       </div>
     </div>
   </div>
@@ -53,43 +53,43 @@
         <br>
         <div class="php">
         <h2 style="text-align: center;">PHP7 Installieren</h2>
-        <p>Die Installation von PHP7 ist genauso einfach wie die von Apache2</p>
+        Um PHP7 zu installieren, benötigt ihr die neuste version von Rasbian, in meinem Fall benutze ich <a href="https://www.raspberrypi.org/downloads/raspbian/">Raspbian Stretch Lite</a> version: November 2017.<br>
+        <br>
+
+        <?php
+        //Eventuell noch erklärung falls ältere Version
+        /*
+
+
+        */
+         ?>
         <p>
-          Beginnenen tun wir mit<br>
-          <code>sudo apt-get install php7.0</code><br>
-          Falls dies nicht funktioniert, müssen wir zuerst noch die Sourcelist bearbeiten, dass php7 installiert werden kann.<br>
-          Zuerst:<br>
-          <code>sudo nano /etc/apt/sources.list</code><br><br>
-          Dann fügt ihr am ende der Datei:<br>
-          <code>deb http://repozytorium.mati75.eu/raspbian jessie-backports main contrib non-free</code><br>
-          ein.<br><br>
-          Die Datei mit <code>Strg+x</code> schließen und mit <code>j</code> die Änderungen übernehmen. Anschließend muss die Paketverwaltung noch upgedatet und php nun installiert werden:<br>
-          <code>sudo nano apt-get update</code><br>
+          Beginnenen wir mit<br>
           <code>sudo apt-get install php7.0</code><br>
           <br>
           Nach einem Neustart von Apache:<br>
           <code>sudo /etc/init.d/apache2 restart</code><br><br>
           ist php installiert.
         </p>
-
-        <p>Wenn die installation abgeschlossen ist, können wir dies auch testen, indem wir
-          in das Verzeichnis des Apache-server gehen
+        <p>Nun kannst du testen ob es funktioniert, indem du
+          in das Verzeichnis des Apache-server gehst
           <br>
           <code>cd /var/www/html</code>
         </p>
-        <p>Hier erstellen wir eine neue Datei namens phpinfo.php <br>
+        <p>Hier erstellst du eine neue Datei namens phpinfo.php <br>
         <code>sudo nano phpinfo.php</code>
       </p>
-        <p>In diese Datei schrieben wir nun folgendes</p>
+        <p>In diese Datei schreibst du nun folgendes</p>
         <pre>
 &lt;?php
   phpinfo();
 ?&gt;
 </pre>
-        <p>Habt ihr das getan, speichert ihr mit <strong>STRG + O</strong> und beendet mit
+        <p>Habt ihr das getan, speicherst du mit <strong>STRG + O</strong> und beendest mit
         <strong>STRG + X</strong> den Editor.</p>
-        <p>Öffnen wir nun https://raspberrypi/phpinfo.php im Browser, sollten
-        wir alle informationen über das installierte php5 sein.</p>
+        <p>Öffnest du nun <a href="https://raspberrypi/phpinfo.php">https://raspberrypi/phpinfo.php</a> im Browser, sollst
+        du alle informationen über das installierte php7 sehen.</p><br>
+        <img src="img/phpinfo.png" alt="phpinfo" width="100%" />
         <!--            Bild von phpinfo anzeigen-->
         </div>
         <br><hr>
@@ -97,14 +97,13 @@
         <h2 style="text-align: center;">Mysql Installieren</h2>
         <p>
           MySql benötigen wir um auf unserem Server, um Datenbanken zu erstellen
-          und zu benutzen. Mit Datenbanken können wir z.B. Benutzerdaten oder Temperaturen speichern.<br>
+          und zu benutzen. Mit Datenbanken können wir z.B. Benutzerdaten oder Temperaturen speichern und abrufen.<br>
         </p>
         <p>Die installation beginnen wir mit <br>
         <code>sudo apt-get install mysql-server mysql-client</code>
         </p>
-        <p>Danach werden wir aufgefordet ein Passwort einzugeben und es danach
-        nochmal zu bestätigen</p>
-        <p>Nachdem alles eingerichtet wurde, müssen wir den Raspberry Pi neu starten. Das
+
+        <p>Nachdem alles installiert wurde, müssen wir den Raspberry Pi neu starten. Das
         machen wir mit <br>
         <code>sudo reboot</code>
         </p>
@@ -114,29 +113,31 @@
         <h2 style="text-align: center;">phpMyAdmin Installieren</h2>
         <p>phpMyAdmin ist ein Tool um Datenbanken mit grafischer Benutzeroberfläche zu erstellen und zu verwalten</p>
         <p>Installieren können wir es mit <br>
-        <code>sudo apt-get install php5-mysql phpmyadmin</code>
+        <code>sudo apt-get install phpmyadmin</code>
         </p>
-        <p>In dem Konfigurationsfenster wählen wir <strong>apache2</strong> mittels
-        der <strong>Leertaste</strong> und <strong>Enter</strong> aus.</p>
-        <p>Daraufhin wird gefragt, ob einige Datenbanken, die phpMyAdmin benötigt,
-        erstellt werden sollen. Dies bestätigen wir und fahren fort.</p>
-        <p>Als nächstes wird nach dem Passwort gefragt, welches wir für den
-        root-User eingegeben haben.</p>
-        <p>Jetzt wird noch nach einem Passwort zum Einloggen in phpMyAdmin
-        gefragt.</p>
-        <p>Nachdem wir alles erfolgreich war, müssen wir noch Apache mit
-        phpMyAdmin verknüpfen. Dazu müssen wir die Datei
-        /etc/php5/apache2/php.ini bebarbeiten <br>
-        <code>sudo nano /etc/php5/apache2/php.ini</code>
-        </p>
-        <p>In der Datei scrollen wir ganz runter bis wir unter <strong>; END;</strong>
-        sind und fügen <strong>extension=mysql.so</strong> ein.</p>
-        <p>Nun Speichern wir noch mit <strong>STRG + O</strong> und beenden mit
-        <strong>STRG + X</strong> den Editor.</p>
-        <p>So, das wars auch schon mit der Installation. Jetzt können wir uns unter
+        Nun solltet ihr nach einem Passwort gefragt werden <br>
+        <img src="img/phpmyadmin-installation1.png" alt="phpmyadmin" width="100%" /><br>
+        Da es, zumindest bei mir, zu vielen problemen mit dem einloggen in phpMyAdmin gegeben hat, da ich mich mit dem <strong>Root</strong> user nicht einloggen konnte,
+        habe ich zum Glück eine einfache Lösung gefunden.<br>
+        Dafür müssen wir einen neuen Benutzer mit Root rechten anlegen, das machen wir so indem wir zuerst<br>
+        <code>sudo mysql</code>
+        eingeben.<br><br>
+        Dort geben wir dann <br>
+        <code>CREATE USER 'test'@'localhost' IDENTIFIED BY '12345';</code> ein. <strong>'test'</strong> ist der Benutzername und <strong>'12345'</strong> ist das Passwort. Benutzername und Passwort könnt ihr mit eurem wunschnamen und wunschpasswort ersetzen.<br>
+        <br>
+        Danach geben wir dem neu angelegten Benutzer root Rechte <br>
+        <code>GRANT ALL PRIVILEGES ON *.* TO 'test'@'localhost' WITH GRANT OPTION;</code><br>
+        <strong>'test'</strong> müsst ihr mit eurem gewählten Benutzernamen ersetzen.<br>
+        <br>
+        Abschliessen tun wir es mit <br>
+        <code>FLUSH PRIVILEGES;</code><br>
+        <br>
+        Um die Mysql eingabe zu beenden, müssen wir <strong>STRG</strong>+<strong>D</strong> drücken.<br><br>
+        <p>So, das wars mit der Einrichtung. Jetzt können wir uns unter
         <a href="http://raspberrypi/phpmyadmin/">http://raspberrypi/phpmyadmin/</a>
-        bzw eurer IP des Raspberry Pi´s anmelden.</p>
-        <p>Der Standartbenutzername ist <strong>root</strong></p>
+        bzw eurer IP des Raspberry Pi´s anmelden.</p><br>
+        <img src="img/phpmyadmin-login.png" alt="phpmyadmin-login" width="100%"/>
+        <p>Als Benutzernamen und Passwort nehmt ihr nun den vorhin erstellten Benutzer.</p>
         <p><strong>Fertig!</strong><br> Jetzt können wir über das Interface
         Datenbanken erstellen und verwalten.</p>
         </div>
