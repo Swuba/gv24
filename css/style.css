@@ -118,6 +118,10 @@ body{
   box-shadow: 2px 2px 0px black;
   border-radius: 4px;
   color: #333;
+  height: 100px;
+}
+.raspberry-pi-tutorials .box-content-left h2{
+  font-size: 32px;
 }
 .raspberry-pi-tutorials .box-content-left p{
   margin-top: 10px;
@@ -127,6 +131,7 @@ body{
   box-shadow: -2px 2px 0px black;
   border-radius: 4px;
   color: #333;
+  height: 100px;
 }
 .raspberry-pi-tutorials .box-content-right:hover{
   box-shadow: -2px 2px 0px grey;
