@@ -11,7 +11,7 @@
       <div class="col-xs-6">
         <h2>Hydra</h2>
         <h1>Eine Seite für alles!</h1>
-        <a id="index-cta" href="#">Inhalt</a>
+        <a id="index-cta" href="tutorials.php">Zu den Tutorials</a>
       </div>
       <div class="col-xs-3">
 
