@@ -162,12 +162,7 @@ body{
 .courses-hw {
     background-color: #025e90 !important;
 }
-.courses-gs {
-    background-color: #4286f4 !important;
-}
-.courses-webserver {
-    background-color: #d82929 !important;
-}
+
 @media (min-width: 768px){
 .index-courses .row .row div .index-courses-outerbox {
     margin-bottom: 20px;

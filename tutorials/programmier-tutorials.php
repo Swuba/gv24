@@ -11,50 +11,49 @@
   </div>
 </div>
 </article>
-<article class="index-courses">
+<article class="raspberry-pi-tutorials">
   <div class="container">
     <div class="row">
       <div class="col-xs-12">
-        <h2>Tutorials</h2>
-        <h3 class="index-courses-subheader"></h3>
+        <h2>Hier findest du alle erstellten Tutorials</h2>
         <div class="row">
-            <div class="col-xs-6">
-              <!-- Getting started -->
-              <a href="tutorials/raspberry-pi-tutorials.php">
-                <div class="index-courses-outerbox courses-gs">
-                  <div class="index-courses-icon">
-                    <div>
-                      <img src="../img/startup-black.png" alt="">
-                    </div>
-                  </div>
-                  <div class="index-courses-box">
-                    <div>
-                      <h3>Getting started</h3>
-                      <p></p>
-                    </div>
-                  </div>
-                </div>
+          <div class="col-xs-6">
+            <a href="getting-started.php">
+              <div class="box-content-left">
+                <h2>html und css</h2>
+              <p>
+                Einfache Html seite erstellen
+              </p>
+              </div>
               </a>
-            </div>
-            <div class="col-xs-6">
-              <!-- Webserver erstellen -->
-              <a href="tutorials/programmier-tutorials.php">
-                <div class="index-courses-outerbox courses-webserver">
-                  <div class="index-courses-icon">
-                    <div>
-                      <img src="../img/www-white.png" alt="">
-                    </div>
-                  </div>
-                  <div class="index-courses-box">
-                    <div>
-                      <h3>API</h3>
-                      <p>Tutorial, wie du die Daten einer API auslesen und weiterverwenden kannst, anhand eines Beispiels von League of Legends</p>
-                    </div>
-                  </div>
-                </div>
-              </a>
+              <a href="temperatur-und-luftfeutchtigkeit-messen-mit-dht22.php">
+                <div class="box-content-left">
+                  <h2>MySql</h2>
+                <p>
 
-            </div>
+                </p>
+                </div>
+                </a>
+
+          </div>
+          <div class="col-xs-6">
+            <a href="raspberry-pi-webserver-erstellen.php">
+              <div class="box-content-right">
+                <h2>PHP</h2>
+              <p>
+                In diesem Tutorial wird dir Schritt für Schritt erklärt wie du ganz einfach auf deinem Raspberry Pi einen Apache2 Webserver mit php,Mysql,phpmyadmin und FTP erstellst.
+              </p>
+              </div>
+              </a>
+              <a href="api-tutorial.php">
+                <div class="box-content-right">
+                  <h2>API´s benutzen</h2>
+                <p>
+                  Hier wird dir anhand von vielen beispielen gezeigt, wie du die API´s von z.B. League of Legends und Destiny2 verwenden kannst.
+                </p>
+                </div>
+                </a>
+          </div>
         </div>
       </div>
     </div>

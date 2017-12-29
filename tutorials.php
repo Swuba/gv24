@@ -35,6 +35,23 @@
                   </div>
                 </div>
               </a>
+              <!-- Hardware
+              <a href="tutorials/raspberry-pi-tutorials.php">
+                <div class="index-courses-outerbox courses-hw">
+                  <div class="index-courses-icon">
+                    <div>
+                      <img src="img/cpu.png" alt="">
+                    </div>
+                  </div>
+                  <div class="index-courses-box">
+                    <div>
+                      <h3>Hardware</h3>
+                      <p>Router konfigurieren, Ports freischalten usw.</p>
+                    </div>
+                  </div>
+                </div>
+              </a>
+              -->
             </div>
             <div class="col-xs-6">
               <!-- Programmieren -->
