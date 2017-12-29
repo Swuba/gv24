@@ -46,7 +46,7 @@
                   <div class="index-courses-box">
                     <div>
                       <h3>Hardware</h3>
-                      <p>Tutorials, die dir Zeigen, wie du einen Raspberry Pi 3 anschließt und einrichtest, einen Webserver installierst und vieles mehr!</p>
+                      <p>Router konfigurieren, Ports freischalten usw.</p>
                     </div>
                   </div>
                 </div>
@@ -69,7 +69,7 @@
                   </div>
                 </div>
               </a>
-              
+
             </div>
         </div>
       </div>
