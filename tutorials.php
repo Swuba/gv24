@@ -1,11 +1,12 @@
 <?php
   include "includes/header.php";
  ?>
- <article class="tutorials-header">
+ <article class="tutheader">
  <div class="container">
    <div class="row">
      <div class="col-xs-12">
-       <h1>Tutorials</h1>
+       <h2>Tutorials</h2>
+       <h1>Aktuelle und verständliche Schritt für Schritt Tutorials</h1>
      </div>
    </div>
  </div>
