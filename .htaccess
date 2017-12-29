@@ -1,0 +1,19 @@
+RewriteEngine On
+
+RewriteRule ^index?$ index.php [NC,L]
+RewriteRule ^login?$ login.php [NC,L]
+RewriteRule ^register?$ register.php [NC,L]
+RewriteRule ^logout?$ includes/logout.inc.php [NC,L]
+RewriteRule ^admin?$ admin.php [NC,L]
+RewriteRule ^benutzeranzeigen?$ benutzeranzeigen.php [NC,L]
+RewriteRule ^benutzeranlegen?$ benutzeranlegen.php [NC,L]
+RewriteRule ^profile?$ profile.php [NC,L]
+RewriteRule ^lol?$ lol.php [NC,L]
+RewriteRule ^summoner?$ ritoapi.php [NC,L]
+RewriteRule ^kontakt?$ kontakt.php [NC,L]
+RewriteRule ^discord?$ discord.php [NC,L]
+RewriteRule ^clicker?$ /Clicker/index.php [NC,L]
+
+//ErrorDocument 404 /404.php
+//RewriteCond %{HTTPS} off
+//RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
