@@ -1,7 +1,7 @@
 <?php
   include "header.php";
  ?>
-<article class="raspberry-pi-header">
+<article class="tutheader">
 <div class="container">
   <div class="row">
     <div class="col-xs-12">

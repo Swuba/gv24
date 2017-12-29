@@ -13,4 +13,7 @@ RewriteRule ^summoner?$ ritoapi.php [NC,L]
 RewriteRule ^kontakt?$ kontakt.php [NC,L]
 RewriteRule ^discord?$ discord.php [NC,L]
 RewriteRule ^clicker?$ /Clicker/index.php [NC,L]
-ErrorDocument 404 /404.php
+
+//ErrorDocument 404 /404.php
+//RewriteCond %{HTTPS} off
+//RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]

@@ -1,7 +1,7 @@
 <?php
   include "header.php";
  ?>
-<article class="webserver-erstellen">
+<article class="tutheader">
   <div class="container">
     <div class="row">
       <div class="col-xs-12">
@@ -53,7 +53,8 @@
         <br>
         <div class="php">
         <h2 style="text-align: center;">PHP7 Installieren</h2>
-        Um PHP7 zu installieren, benötigt ihr die neuste version von Rasbian, in meinem Fall benutze ich <a href="https://www.raspberrypi.org/downloads/raspbian/">Raspbian Stretch Lite</a> version: November 2017.<br>
+        Um PHP7 zu installieren, benötigt ihr die neuste version von Rasbian, in meinem Fall benutze ich <a href="https://www.raspberrypi.org/downloads/raspbian/">Raspbian Stretch Lite</a>
+        version: November 2017.<br>
         <br>
 
         <?php
@@ -70,6 +71,7 @@
           Nach einem Neustart von Apache:<br>
           <code>sudo /etc/init.d/apache2 restart</code><br><br>
           ist php installiert.
+          <br>
         </p>
         <p>Nun kannst du testen ob es funktioniert, indem du
           in das Verzeichnis des Apache-server gehst

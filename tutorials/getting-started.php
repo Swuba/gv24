@@ -1,5 +1,5 @@
 <?php include "header.php"; ?>
-<article class="getting-started-header">
+<article class="tutheader">
 <div class="container">
   <div class="row">
     <div class="col-xs-12">
@@ -40,7 +40,7 @@
         <div class="apache2">
         <h2 style="text-align: center;">Vorbereitung</h2>
         <p>
-          
+
         </p>
 
         </div>

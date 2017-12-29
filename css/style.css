@@ -188,14 +188,14 @@ body{
   margin-top: 50px;
   margin-bottom: 0px;
 }
-.getting-started-header{
+.tutheader{
   width: 100%;
   background-image: url("../img/forest.jpeg");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
 }
-.getting-started-header h2{
+.tutheader h2{
   color: #fff;
   font-family: "Lobster";
   font-size: 63px;
@@ -206,7 +206,7 @@ body{
   margin-top: 0px;
   margin-bottom: 0px;
 }
-.getting-started-header h1{
+.tutheader h1{
   color: #fff;
   font-size: 32px;
   text-align: center;
