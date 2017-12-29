@@ -14,32 +14,43 @@
   <div class="container">
     <div class="row">
       <div class="col-xs-12">
-        <h2>Wähle eine Kategorie</h2>
+        <h2>Kategorien</h2>
         <h3 class="index-courses-subheader">Hier findest du alle möglichen Tutorials, wie z.B zu dem Raspberry Pi,
           Programmiersprachen, API nutzungen von z.B.von League of Legend und vieles mehr...</h3>
         <div class="row">
             <div class="col-xs-6">
-                <h2>Raspberry Pi</h2>
-                <br>
-                <p>
-                  Tutorials, wie du deinen Raspberry Pi einrichtest, einen Webserver installierst und vieles mehr!
-                 </p>
-                <p><a href="tutorials/raspberry-pi-tutorials.php" class="btn btn-success">zum Tutorial &raquo;</a></p>
+              <a href="tutorials/raspberry-pi-tutorials.php">
+                <div class="index-courses-outerbox courses-rp">
+                  <div class="index-courses-icon">
+                    <div>
+                      <img src="img/Raspberry-Pi-3-1.png" alt="">
+                    </div>
+                  </div>
+                  <div class="index-courses-box">
+                    <div>
+                      <h3>Raspberry Pi</h3>
+                      <p>Tutorials, die dir Zeigen, wie du einen Raspberry Pi 3 anschließt und einrichtest, einen Webserver installierst und vieles mehr!</p>
+                    </div>
+                  </div>
+                </div>
+              </a>
             </div>
             <div class="col-xs-6">
-                <h2>Programmierkrams</h2>
-                <br>
-                <p>
-                  (HTML, CSS, PHP, JSON, Python, MySql)
-                </p>
-                <p><a href="tutorials/programmier-tutorials.php" class="btn btn-success">zum Tutorial &raquo;</a></p>
-            </div>
-            <div class="col-xs-6">
-                <h2>Hardware</h2>
-                <br>
-                <p>Router konfigurieren, Ports freischalten usw.
-                </p>
-                <p><a href="#" class="btn btn-success">zum Tutorial &raquo;</a></p>
+              <a href="tutorials/programmier-tutorials.php">
+                <div class="index-courses-outerbox courses-coding">
+                  <div class="index-courses-icon">
+                    <div>
+                      <img src="img/programming-img.jpg" alt="">
+                    </div>
+                  </div>
+                  <div class="index-courses-box">
+                    <div>
+                      <h3>Coding</h3>
+                      <p>Basics, wie du deine Entwicklungsumgebung einrichtest, der Start deiner eigenen Website, API´s verwendest z.B. von League of Legends und vieles mehr!</p>
+                    </div>
+                  </div>
+                </div>
+              </a>
             </div>
         </div>
       </div>

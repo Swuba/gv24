@@ -76,6 +76,9 @@ body{
 /*******************************************************************************
                                     tutorials
 *******************************************************************************/
+.col-xs-6{
+  width: 100%;
+}
 .index-courses{
   width: 100%;
   background-color: #f1f2f7;
@@ -98,14 +101,71 @@ body{
   margin-bottom: 40px;
   padding: 0px 10px;
 }
-.index-courses p {
-  text-align: center;
+
+.index-courses .row .row div .index-courses-outerbox{
+    width: 100%;
+    height: 150px;
+    overflow: hidden;
+    margin-bottom: 10px;
+    position: relative;
+    top: 0px;
+    box-shadow: 0px 2px 0px #cccfdb;
+    border-radius: 4px;
+    transition: all 100ms ease-in-out;
+    -webkit-transition: all 100ms ease-in-out;
 }
-.kapitel-auswahl{
-  margin-top: 45px;
+.index-courses .row .row div div .index-courses-icon {
+    width: 18%;
+    min-height: 150px;
+    float: left;
+    display: table;
 }
-.kapitel-auswahl li{
-  list-style: none;
+.index-courses .row .row div div .index-courses-icon div {
+    display: table-cell;
+    vertical-align: middle;
+}
+.index-courses .row .row div div .index-courses-icon div img {
+    width: 60%;
+    display: block;
+    margin: 0 auto;
+}
+.index-courses .row .row div div .index-courses-box {
+    display: table;
+    float: right;
+    width: 82%;
+    min-height: 150px;
+    padding: 0px 2% 0px 4%;
+    background-color: #fff;
+}
+.index-courses .row .row div div .index-courses-box div {
+    display: table-cell;
+    vertical-align: middle;
+    padding: 10px 0px;
+}
+.index-courses .row .row div div .index-courses-box div h3 {
+    color: #222;
+    font-size: 18px;
+    margin-top: 0px;
+    margin-bottom: 10px;
+}
+.index-courses .row .row div div .index-courses-box p {
+    color: #222;
+    font-size: 14px;
+    margin-bottom: 0px;
+}
+.courses-rp {
+    background-color: #4999e8 !important;
+}
+.courses-coding {
+    background-color: #1b2433 !important;
+}
+@media (min-width: 768px){
+.index-courses .row .row div .index-courses-outerbox {
+    margin-bottom: 20px;
+}
+.col-xs-6{
+  width: 50%;
+}
 }
 /*******************************************************************************
                                     Raspberry-Pi
