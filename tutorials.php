@@ -35,7 +35,7 @@
                   </div>
                 </div>
               </a>
-              <!-- Hardware -->
+              <!-- Hardware
               <a href="tutorials/raspberry-pi-tutorials.php">
                 <div class="index-courses-outerbox courses-hw">
                   <div class="index-courses-icon">
@@ -51,6 +51,7 @@
                   </div>
                 </div>
               </a>
+              -->
             </div>
             <div class="col-xs-6">
               <!-- Programmieren -->
