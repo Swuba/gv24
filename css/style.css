@@ -54,7 +54,7 @@ body{
 *******************************************************************************/
 .index-info{
   width: 100%;
-  background-color: #fff;
+  background-color: #f1f2f7;
   padding-bottom: 60px;
 }
 .index-info h2{
@@ -75,6 +75,10 @@ body{
   padding: 0px 10px;
 }
 
+.index-info hr{
+  margin-top: 50px;
+  border-top: 1px solid gray;
+}
 /*******************************************************************************
                                     tutorials
 *******************************************************************************/
