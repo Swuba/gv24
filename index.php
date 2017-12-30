@@ -41,6 +41,16 @@
 
   </div>
 </article>
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- tut1 -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-2802451501665411"
+     data-ad-slot="6303639429"
+     data-ad-format="auto"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
 <?php include "includes/footer.php"; ?>
   </body>
 </html>

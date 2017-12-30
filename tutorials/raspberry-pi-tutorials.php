@@ -24,7 +24,7 @@
                 <div class="index-courses-outerbox courses-gs">
                   <div class="index-courses-icon">
                     <div>
-                      <img src="../img/startup-black.png" alt="">
+                      <img src="../img/startup-white.png" alt="">
                     </div>
                   </div>
                   <div class="index-courses-box">
