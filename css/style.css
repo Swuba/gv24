@@ -10,7 +10,7 @@ body{
 *******************************************************************************/
 .index-intro{
   width: 100%;
-  background-image: url("../img/forest.jpeg");
+  background-image: url("../img/wald.jpeg");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -18,7 +18,7 @@ body{
 .index-intro h2{
   color: #fff;
   font-family: "Lobster";
-  text-shadow: 5px 2px 1px rgba(0, 0, 0, 1);
+
   font-size: 63px;
   font-weight: bold;
   text-align: center;
@@ -29,7 +29,6 @@ body{
 .index-intro h1{
   color: #fff;
   font-size: 26px;
-  text-shadow: 5px 2px 1px rgba(0, 0, 0, 1);
   text-align: center;
   line-height: 36px;
   padding: 0px 10px;

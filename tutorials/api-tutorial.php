@@ -39,10 +39,19 @@
           Hier meldet ihr euch oben rechts unter Sign in mit euren normalen
           LoL daten an.
         </p>
-        <img src="img/developer-riotgames.png" alt="startseite developer.riotgames " width="750px"/><br><br><br>
+        <a class="example-image-link"
+        href="img/developer-riotgames.png"
+        data-lightbox="example-1"><img class="example-image"
+        src="img/developer-riotgames.png"
+        alt="image-1" width="750" /></a>
+        <br><br><br>
         <p>
           Wenn ihr nun angemeldet seid, sollte ihr nun dass hier sehen <br>
-          <img src="img/Dashboard.png" alt="dashboard" / width="750px">
+          <a class="example-image-link"
+          href="img/Dashboard.png"
+          data-lightbox="example-1"><img class="example-image"
+          src="img/Dashboard.png"
+          alt="image-1" width="750" /></a>
         </p>
         <p>
           Hier seht ihr nun euren API Key. Ohne diesen geht nichts! <br>
@@ -69,7 +78,12 @@
         <p>
           Fangen wir an.<br>
           Wir erstellen in der <b>index.html</b> nun das Html grundgerüst.<br>
-          <img src="img/htmlgrundseite.png" alt="html" /><br><br>
+          <a class="example-image-link"
+          href="img/htmlgrundseite.png"
+          data-lightbox="example-1"><img class="example-image"
+          src="img/htmlgrundseite.png"
+          alt="image-1" width="750" /></a>
+          <br><br>
           Als erstes setzen wir den title der Seite zu <br>
           <code>&lt;title&gt;Home&lt;/title&gt;</code><br><br>
           Nun erstellen wir im Body eine Form <br>
@@ -78,7 +92,12 @@
   &lt;input type="text" placeholder='Summonername' name='summonername' required&gt;
   &lt;button type="submit">Suchen&lt;/button&gt;
 &lt;/form&gt;</pre>
-<img src="img/html-form.png" alt="" width="750px;"/><br><br>
+<a class="example-image-link"
+href="img/html-form.png"
+data-lightbox="example-1"><img class="example-image"
+src="img/html-form.png"
+alt="image-1" width="750" /></a>
+<br><br>
         </p>
         <hr>
         <h2 style="text-align: center;">PHP teil</h2>
@@ -97,13 +116,22 @@
           <code>$api_key = 'API_KEY'</code><br><br>
           API_KEY müsst ihr nun mir eurem Api key ersetzen, den ihr auf der
           Startseite von <a href="https://developer.riotgames.com/">developer.riotgames.com</a> bekommt.<br>
-          <img src="img/api_key.png" alt="" /><br>
+          <a class="example-image-link"
+          href="img/api_key.png"
+          data-lightbox="example-1"><img class="example-image"
+          src="img/api_key.png"
+          alt="image-1" /></a>
+          <br>
         </p>
         <p>
           Als nächtes müssen wir noch den Namen, den wir von der <code>Index.html</code> bekommen, als variable speichern.<br>
           Dazu machen wir <br>
           <code>$summonerName = $_GET['summonername'];</code><br>
-          <img src="img/api-summonername.png" alt="" />
+          <a class="example-image-link"
+          href="img/api-summonername.png"
+          data-lightbox="example-1"><img class="example-image"
+          src="img/api-summonername.png"
+          alt="image-1" /></a>
         </p>
         <p>
           <br>
@@ -111,14 +139,29 @@
           Wir erstellen unsere erste API anfrage.<br>
           Dazu müssen wir aber zuerst auf <a href="https://developer.riotgames.com/api-methods/">diese</a> Seite geht.<br>
           Dort solltet ihr nun folgendes sehen
-          <img src="img/alleapis.png" alt="" width="750px;"/>  <br><br>
+          <a class="example-image-link"
+          href="img/alleapis.png"
+          data-lightbox="example-1"><img class="example-image"
+          src="img/alleapis.png"
+          alt="image-1" width="750"/></a>
+          <br><br>
           auf der linken Seite wählen wir nun <b>Summoner-V3</b> aus.
           Von den 3 aufgelisteten, interresiert uns nur <br>
           <code>/lol/summoner/v3/summoners/by-name/{summonerName}</code><br>
           Wenn wir darauf klicken, bekommen wir die Informationen angezeigt die wir aus dieser anfrage bekommen.<br>
-          <img src="img/summoner-v3-infos.png" alt="" width="750px;"/><br><br>
+          <a class="example-image-link"
+          href="img/summoner-v3-infos.png"
+          data-lightbox="example-1"><img class="example-image"
+          src="img/summoner-v3-infos.png"
+          alt="image-1" width="750"/></a>
+          <br><br>
           Scrollen wir nun runter, bis wir zu <br>
-          <img src="img/sm-v3-eingabe.png" alt="" width="750px;"/><br>
+          <a class="example-image-link"
+          href="img/sm-v3-eingabe.png"
+          data-lightbox="example-1"><img class="example-image"
+          src="img/sm-v3-eingabe.png"
+          alt="image-1" width="750"/></a>
+          <br>
           kommen, könnt ihr bei <b>SummonerName</b> euren LoL namen eingeben.<br>
           Bei <b>Include Api Key as</b> wählt ihr <b>Query Param</b> aus und dann auf <b>Execute Request</b> klicken.
           Scrollt ihr nun runter bis ihr zu <b>Response Body</b> kommt, solltet
@@ -134,7 +177,12 @@ $result = json_decode(file_get_contents('https://euw1.api.riotgames.com/lol/summ
           Dies speichert nun die Informationen die wir eben sehen konnten in die Variable <code>$result</code>.<br>
           Doch wie komme ich an den Link für diese Anfrage?<br>
           Diesen findest du unter <b>Execute Request</b> bei <b>Request URL</b><br>
-          <img src="img/sm-v3-request-url.png" alt="" width="750px;"/><br><br>
+          <a class="example-image-link"
+          href="img/sm-v3-request-url.png"
+          data-lightbox="example-1"><img class="example-image"
+          src="img/sm-v3-request-url.png"
+          alt="image-1" width="750"/></a>
+          <br><br>
           Den Summonername ersetzen wir in unserer Abfrage mit dem Namen, den wir auf der <code>Index.html</code> eingeben und den Api key ersetzen wir mit dem Key, den wir in der <code>api.php</code> zugewiesen haben.
         </p>
         <hr>
@@ -142,11 +190,21 @@ $result = json_decode(file_get_contents('https://euw1.api.riotgames.com/lol/summ
         <p>
           So...<br>
           Wenn wir auf den Link in der <b>Request URL</b> klicken, sehen wir so etwas <br>
-          <img src="img/json-roh.png" alt="" /><br><br>
+          <a class="example-image-link"
+          href="img/json-roh.png"
+          data-lightbox="example-1"><img class="example-image"
+          src="img/json-roh.png"
+          alt="image-1"/></a>
+          <br><br>
           Jede einzelne Information, können wir nun in einzelne variablen stecken.<br>
           Als erstes wollen wir das <b>SummonerLevel</b> in eine Variable tun, dies tun wir so<br>
           <code>$summonerLevel = $result->summonerLevel;</code><br>
-          <img src="img/api-php.png" alt="" width="750px;"/><br><br>
+          <a class="example-image-link"
+          href="img/api-php.png"
+          data-lightbox="example-1"><img class="example-image"
+          src="img/api-php.png"
+          alt="image-1" width="750"/></a>
+          <br><br>
           Um zu testen ob es funktioniert hat, schreiben wir unter das <code>$summonerLevel</code><br>
           <code>echo $summonerLevel;</code>
         </p>

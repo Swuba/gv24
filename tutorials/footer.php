@@ -11,3 +11,5 @@
     </div>
   </div>
 </footer>
+<script src="../css/dist/js/lightbox.js"></script>
+</body>

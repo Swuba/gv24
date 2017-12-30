@@ -9,7 +9,7 @@
 
       </div>
       <div class="col-xs-6">
-        <h2>Hydra</h2>
+        <h2>DeinTutorial24</h2>
         <h1>Eine Seite für alles!</h1>
         <a id="index-cta" href="tutorials.php">Zu den Tutorials</a>
       </div>
@@ -50,7 +50,7 @@
         <div class="row">
             <div class="col-xs-6">
               <!-- Getting started -->
-              <a href="getting-started.php">
+              <a href="tutorials/getting-started.php">
                 <div class="index-courses-outerbox courses-gs">
                   <div class="index-courses-icon">
                     <div>
@@ -68,7 +68,7 @@
             </div>
             <div class="col-xs-6">
               <!-- Webserver erstellen -->
-              <a href="raspberry-pi-webserver-erstellen.php">
+              <a href="tutorials/raspberry-pi-webserver-erstellen.php">
                 <div class="index-courses-outerbox courses-webserver">
                   <div class="index-courses-icon">
                     <div>
