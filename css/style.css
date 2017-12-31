@@ -18,7 +18,7 @@ body{
 .index-intro h2{
   color: #fff;
   font-family: "Lobster";
-
+  text-shadow: 5px 0 5px black;
   font-size: 63px;
   font-weight: bold;
   text-align: center;
@@ -29,6 +29,7 @@ body{
 .index-intro h1{
   color: #fff;
   font-size: 26px;
+  text-shadow: 5px 0 5px black;
   text-align: center;
   line-height: 36px;
   padding: 0px 10px;
@@ -281,7 +282,7 @@ body{
 .tutheader h2{
   color: #fff;
   font-family: "Lobster";
-  text-shadow: 5px 2px 1px rgba(0, 0, 0, 1);
+  text-shadow: 5px 0 5px black;
   font-size: 63px;
   font-weight: bold;
   text-align: center;
@@ -293,7 +294,7 @@ body{
 .tutheader h1{
   color: #fff;
   font-size: 32px;
-  text-shadow: 3px 2px 1px rgba(0, 0, 0, 1);
+  text-shadow: 5px 0 5px black;
   text-align: center;
   line-height: 36px;
   padding: 0px 10px;
