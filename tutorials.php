@@ -1,5 +1,7 @@
 <?php
   include "includes/header.php";
+  include 'includes/dbh.php';
+  header("Content-Type: text/html; charset=utf-8");
  ?>
  <article class="tutheader">
  <div class="container">
@@ -20,58 +22,70 @@
           Programmiersprachen, API nutzungen von z.B.von League of Legend und vieles mehr...</h3>
         <div class="row">
             <div class="col-xs-6">
-              <!-- Raspberry Pi -->
-              <a href="tutorials/raspberry-pi-tutorials.php">
-                <div class="index-courses-outerbox courses-rp">
-                  <div class="index-courses-icon">
-                    <div>
-                      <img src="img/Raspberry-Pi-3-1.png" alt="">
+              <?php
+              $sql = "SELECT * FROM categories";
+              $result = $conn->query($sql);
+              while($row = mysqli_fetch_assoc($result)) {
+
+                if ($row['id'] % 2 != 0) {
+                  ?>
+                  <a href="tutorials/kategorie.php?kategorie=<?php echo $row['name_link']; ?>">
+                    <div class="index-courses-outerbox" style="background-color: <?php echo $row['farbe'];?> !important;">
+                      <div class="index-courses-icon">
+                        <div>
+                          <img src="img/<?php echo $row['bild'];?>" alt="">
+                        </div>
+                      </div>
+                      <div class="index-courses-box">
+                        <div>
+                          <h3><?php echo $row['name']; ?></h3>
+                          <p><?php echo $row['beschreibung']; ?></p>
+                        </div>
+                      </div>
                     </div>
-                  </div>
-                  <div class="index-courses-box">
-                    <div>
-                      <h3>Raspberry Pi</h3>
-                      <p>Tutorials, die dir Zeigen, wie du einen Raspberry Pi 3 anschließt und einrichtest, einen Webserver installierst und vieles mehr!</p>
-                    </div>
-                  </div>
-                </div>
-              </a>
-              <!-- Hardware
-              <a href="tutorials/raspberry-pi-tutorials.php">
-                <div class="index-courses-outerbox courses-hw">
-                  <div class="index-courses-icon">
-                    <div>
-                      <img src="img/cpu.png" alt="">
-                    </div>
-                  </div>
-                  <div class="index-courses-box">
-                    <div>
-                      <h3>Hardware</h3>
-                      <p>Router konfigurieren, Ports freischalten usw.</p>
-                    </div>
-                  </div>
-                </div>
-              </a>
-              -->
+                  </a>
+                  <?php
+                }
+                ?>
+
+
+                <?php
+              }
+               ?>
             </div>
             <div class="col-xs-6">
-              <!-- Programmieren -->
-              <a href="tutorials/programmier-tutorials.php">
-                <div class="index-courses-outerbox courses-coding">
-                  <div class="index-courses-icon">
-                    <div>
-                      <img src="img/programming-img.jpg" alt="">
-                    </div>
-                  </div>
-                  <div class="index-courses-box">
-                    <div>
-                      <h3>Coding</h3>
-                      <p>Basics, wie du deine Entwicklungsumgebung einrichtest, der Start deiner eigenen Website, API´s verwendest z.B. von League of Legends und vieles mehr!</p>
-                    </div>
-                  </div>
-                </div>
-              </a>
+              <?php
+              $sql = "SELECT * FROM categories";
+              $result = $conn->query($sql);
+              while($row = mysqli_fetch_assoc($result)) {
 
+                if ($row['id'] % 2 == 0) {
+                  $name = str_replace(" ","-",$row['name']);
+                  $name = strtolower($name);
+                  ?>
+                  <a href="tutorials/kategorie.php?kategorie=<?php echo $row['name_link']; ?>">
+                    <div class="index-courses-outerbox" style="background-color: <?php echo $row['farbe'];?> !important;">
+                      <div class="index-courses-icon">
+                        <div>
+                          <img src="img/<?php echo $row['bild'];?>" alt="">
+                        </div>
+                      </div>
+                      <div class="index-courses-box">
+                        <div>
+                          <h3><?php echo $row['name']; ?></h3>
+                          <p><?php echo $row['beschreibung']; ?></p>
+                        </div>
+                      </div>
+                    </div>
+                  </a>
+                  <?php
+                }
+                ?>
+
+
+                <?php
+              }
+               ?>
             </div>
         </div>
       </div>
