@@ -17,7 +17,6 @@
       if (empty($title) or empty($content)) {
         $_SESSION['error'] = "Titel und Content muss angegeben werden";
       }else {
-
         $sql1 = "SELECT nummer FROM tutorials WHERE category='$category'";
         $result1 = mysqli_query($conn, $sql1);
         $i = $result1->num_rows;

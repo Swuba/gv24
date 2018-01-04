@@ -3,11 +3,28 @@
   if (isset($_SESSION['logged_in'])) {
     if($_SESSION['admin'] == 5)
     {
+      if (isset($_POST['edit'])) {
+        $username = mysqli_real_escape_string($conn, $_POST['username']);
+        $email = mysqli_real_escape_string($conn, $_POST['email']);
+        $admin = $_POST['adminlevel'];
+        $id = $_POST['id'];
+        if (empty($username) or empty($email)) {
+          $_SESSION['error'] = "Kein Feld darf leer sein";
+        }else {
+          $sql = "UPDATE users SET username='$username', email='$email', admin='$admin' WHERE id='$id'";
+          $result = mysqli_query($conn, $sql);
+          $_SESSION['success'] = "Profil wurde geändert";
+          ?>
+          <meta http-equiv="refresh" content="0; URL=index.php">
+          <?php
+        }
+      }
       if (isset($_GET['username'])) {
-        $username = $_GET['username'];
+        $username = mysqli_real_escape_string($conn, $_GET['username']);
         $sql = "SELECT * FROM users WHERE username='$username'";
         $result = mysqli_query($conn, $sql);
         $row = mysqli_fetch_assoc($result);
+
         ?>
         <section id="main">
           <div class="container">
@@ -31,10 +48,10 @@
                 <!-- Website Overview -->
                 <div class="panel panel-default">
                   <div class="panel-heading main-color-bg">
-                    <h3 class="panel-title">Profiel bearbeiten</h3>
+                    <h3 class="panel-title">Profil bearbeiten</h3>
                   </div>
                   <div class="panel-body">
-                    <form action="editprofile.php" method="post">
+                    <form action="edituser.php" method="post">
                        <div class="modal-body">
                          <?php
                          if (isset($_SESSION['error'])) {
@@ -47,6 +64,7 @@
                         }
                           ?>
                          <div class="form-group">
+                           <input type="hidden" name="id" value="<?php echo $row['id']; ?>"/>
                            <label>Benutzername</label>
                            <input type="text" name="username" class="form-control" value="<?php echo $row['username']; ?>">
                          </div>
