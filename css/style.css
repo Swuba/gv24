@@ -303,14 +303,14 @@ body{
   padding-bottom: 100px;
 }
 
-.webserver-erstellen{
+.tutorial{
   width: 100%;
   background-image: url("../img/web.jpg");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
 }
-.webserver-erstellen h2{
+.tutorial h2{
   color: #fff;
   font-family: "Lobster";
   font-size: 63px;
@@ -321,7 +321,7 @@ body{
   margin-top: 0px;
   margin-bottom: 0px;
 }
-.webserver-erstellen h1{
+.tutorial h1{
   color: #fff;
   font-size: 32px;
   text-align: center;

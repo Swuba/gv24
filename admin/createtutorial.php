@@ -10,6 +10,8 @@
       $banner = mysqli_real_escape_string($conn, $_POST['banner']);
       $beschreibung = mysqli_real_escape_string($conn, $_POST['beschreibung']);
       $title = mysqli_real_escape_string($conn, $_POST['title']);
+      $name_link = str_replace(" ","-",$title);
+      $name_link = strtolower($name_link);
       $titleheader = mysqli_real_escape_string($conn, $_POST['titleheader']);
       $content = mysqli_real_escape_string($conn, $_POST['content']);
       $metatags = mysqli_real_escape_string($conn, $_POST['metatags']);
@@ -25,7 +27,7 @@
         }else {
           $i++;
         }
-        $sql = "INSERT INTO tutorials (nummer, category, title, titleheader, beschreibung, content, bild, banner, farbe, metatags, metadesc, erstelltvon) VALUES ('$i', '$category', '$title', '$titleheader', '$beschreibung', '$content', '$bild', '$banner', '$farbe', '$metatags', '$metadesc', '$username')";
+        $sql = "INSERT INTO tutorials (nummer, category, title, name_link, titleheader, beschreibung, content, bild, banner, farbe, metatags, metadesc, erstelltvon) VALUES ('$i', '$category', '$title', '$name_link', '$titleheader', '$beschreibung', '$content', '$bild', '$banner', '$farbe', '$metatags', '$metadesc', '$username')";
         $result = mysqli_query($conn, $sql);
         $_SESSION['success'] = "Tutorial erfolgreich erstellt";
         ?>

@@ -57,7 +57,7 @@
                     while($row = mysqli_fetch_assoc($result)) {
                       if ($row['nummer'] % 2 != 0) {
                         ?>
-                        <a href="#">
+                        <a href="tutorial.php?tutorial=<?php echo $row['name_link'];?>">
                           <div class="index-courses-outerbox" style="background-color: <?php echo $row['farbe'];?> !important;">
                             <div class="index-courses-icon">
                               <div>
@@ -84,7 +84,7 @@
                     while($row = mysqli_fetch_assoc($result)) {
                       if ($row['nummer'] % 2 == 0) {
                         ?>
-                        <a href="#">
+                        <a href="tutorial.php?tutorial=<?php echo $row['name_link'];?>">
                           <div class="index-courses-outerbox" style="background-color: <?php echo $row['farbe'];?> !important;">
                             <div class="index-courses-icon">
                               <div>
