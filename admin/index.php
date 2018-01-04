@@ -14,6 +14,8 @@
               <a href="edittutorial.php" class="list-group-item"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Tutorial bearbeiten</a>
               <a href="createcategory.php" class="list-group-item"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Kategorie erstellen</a>
               <a href="editcategory.php" class="list-group-item"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Kategorie bearbeiten</a>
+              <a href="createuser.php" class="list-group-item"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> User erstellen</a>
+              <a href="edituser.php" class="list-group-item"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> User bearbeiten</a>
               <a href="fileupload.php" class="list-group-item"><span class="	glyphicon glyphicon-plus" aria-hidden="true"></span> Bilder hochladen</a>
               <a href="bilder.php" class="list-group-item"><span class="	glyphicon glyphicon-picture" aria-hidden="true"></span> Bilder anzeigen</a>
             </div>
@@ -80,17 +82,49 @@
                   <h3 class="panel-title">Latest Users</h3>
                 </div>
                 <div class="panel-body">
+                  <?php
+                  $sql = "SELECT * FROM users ORDER BY id DESC LIMIT 10";
+                  $result = mysqli_query($conn, $sql);
+                   ?>
                   <table class="table table-striped table-hover">
                       <tr>
                         <th>Name</th>
                         <th>Email</th>
+                        <th>Adminlevel</th>
                         <th>Joined</th>
                       </tr>
-                      <tr>
-                        <td>Name</td>
-                        <td>email</td>
-                        <td>Datum</td>
-                      </tr>
+                      <?php
+                      while ($row = mysqli_fetch_assoc($result)) {
+                        ?>
+                        <tr>
+                          <td><?php echo $row['username']; ?></td>
+                          <td><?php echo $row['email']; ?></td>
+                          <td><?php switch ($row['admin']) {
+                            case '1':
+                              echo "Abonnent";
+                              break;
+                            case '2':
+                              echo "Mitarbeiter";
+                              break;
+                            case '3':
+                              echo "Autor";
+                              break;
+                            case '4':
+                              echo "Redakteur";
+                              break;
+                            case '5':
+                              echo "Admin";
+                              break;
+                            default:
+                              echo "Member";
+                              break;
+                          } ?></td>
+                          <td><?php echo $row['joined']; ?></td>
+                        </tr>
+                        <?php
+                      }
+                       ?>
+
                     </table>
                 </div>
               </div>

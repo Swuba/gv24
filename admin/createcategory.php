@@ -2,13 +2,13 @@
   include 'includes/adminheader.php';
   if (isset($_SESSION['logged_in'])) {
   if (isset($_POST['name'])) {
-    $kategoriename = $_POST['name'];
-    $titleheader = $_POST['titleheader'];
-    $beschreibung = $_POST['beschreibung'];
-    $bild = $_POST['bild'];
-    $banner = $_POST['banner'];
-    $farbe = $_POST['farbe'];
-    $username = $_SESSION['username'];
+    $kategoriename = mysqli_real_escape_string($conn, $_POST['name']);
+    $titleheader = mysqli_real_escape_string($conn, $_POST['titleheader']);
+    $beschreibung = mysqli_real_escape_string($conn, $_POST['beschreibung']);
+    $bild = mysqli_real_escape_string($conn, $_POST['bild']);
+    $banner = mysqli_real_escape_string($conn, $_POST['banner']);
+    $farbe = mysqli_real_escape_string($conn, $_POST['farbe']);
+    $username = mysqli_real_escape_string($conn, $_SESSION['username']);
     $name = str_replace(" ","-",$kategoriename);
     $name = strtolower($name);
     if (empty($kategoriename) or empty($beschreibung)) {
@@ -33,8 +33,10 @@
            </a>
            <a href="createtutorial.php" class="list-group-item"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Tutorial erstellen</a>
            <a href="edittutorial.php" class="list-group-item"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Tutorial bearbeiten</a>
-           <a href="createcategory.php" class="list-group-item"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Kategorie erstellen</a>
+           <a href="createcategory.php" class="list-group-item active"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Kategorie erstellen</a>
            <a href="editcategory.php" class="list-group-item"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Kategorie bearbeiten</a>
+           <a href="createuser.php" class="list-group-item"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> User erstellen</a>
+           <a href="edituser.php" class="list-group-item"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> User bearbeiten</a>
            <a href="fileupload.php" class="list-group-item"><span class="	glyphicon glyphicon-plus" aria-hidden="true"></span> Bilder hochladen</a>
            <a href="bilder.php" class="list-group-item"><span class="	glyphicon glyphicon-picture" aria-hidden="true"></span> Bilder anzeigen</a>
          </div>

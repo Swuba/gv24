@@ -2,26 +2,26 @@
   include 'includes/adminheader.php';
   if (isset($_SESSION['logged_in'])) {
     if (isset($_POST['delete'])) {
-      $id = $_POST['id'];
+      $id = mysqli_real_escape_string($conn, $_POST['id']);
       $sql = "DELETE FROM categories WHERE id='$id'";
       $result = $conn->query($sql);
       $sql2 = "ALTER TABLE `categories` AUTO_INCREMENT=1";
       $result2 = $conn->query($sql2);
     }
     if (isset($_POST['name'])) {
-      $id = $_POST['id'];
-      $name = $_POST['name'];
-      $titleheader = $_POST['titleheader'];
-      $beschreibung = $_POST['beschreibung'];
-      $bild = $_POST['bild'];
-      $farbe = $_POST['farbe'];
-      $banner = $_POST['banner'];
-      $username = $_SESSION['username'];
+      $id = mysqli_real_escape_string($conn, $_POST['id']);
+      $name = mysqli_real_escape_string($conn, $_POST['name']);
+      $titleheader = mysqli_real_escape_string($conn, $_POST['titleheader']);
+      $beschreibung = mysqli_real_escape_string($conn, $_POST['beschreibung']);
+      $bild = mysqli_real_escape_string($conn, $_POST['bild']);
+      $farbe = mysqli_real_escape_string($conn, $_POST['farbe']);
+      $banner = mysqli_real_escape_string($conn, $_POST['banner']);
+      $username = mysqli_real_escape_string($conn, $_SESSION['username']);
       $sql = "UPDATE categories SET name = '$name', titleheader='$titleheader', banner='$banner', beschreibung='$beschreibung', bild='$bild', farbe='$farbe', bearbeitetvon='$username' WHERE id='$id'";
       $result = $conn->query($sql);
     }
     if(isset($_POST['category'])){
-      $category = $_POST['category'];
+      mysqli_real_escape_string($conn, $category = $_POST['category']);
       $sql = "SELECT * FROM categories WHERE id='$category'";
       $result = $conn->query($sql);
       $row = mysqli_fetch_assoc($result);
@@ -37,7 +37,9 @@
                 <a href="createtutorial.php" class="list-group-item"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Tutorial erstellen</a>
                 <a href="edittutorial.php" class="list-group-item"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Tutorial bearbeiten</a>
                 <a href="createcategory.php" class="list-group-item"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Kategorie erstellen</a>
-                <a href="editcategory.php" class="list-group-item"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Kategorie bearbeiten</a>
+                <a href="editcategory.php" class="list-group-item active"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Kategorie bearbeiten</a>
+                <a href="createuser.php" class="list-group-item"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> User erstellen</a>
+                <a href="edituser.php" class="list-group-item"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> User bearbeiten</a>
                 <a href="fileupload.php" class="list-group-item"><span class="	glyphicon glyphicon-plus" aria-hidden="true"></span> Bilder hochladen</a>
                 <a href="bilder.php" class="list-group-item"><span class="	glyphicon glyphicon-picture" aria-hidden="true"></span> Bilder anzeigen</a>
               </div>
@@ -100,7 +102,9 @@
                 <a href="createtutorial.php" class="list-group-item"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Tutorial erstellen</a>
                 <a href="edittutorial.php" class="list-group-item"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Tutorial bearbeiten</a>
                 <a href="createcategory.php" class="list-group-item"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Kategorie erstellen</a>
-                <a href="editcategory.php" class="list-group-item"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Kategorie bearbeiten</a>
+                <a href="editcategory.php" class="list-group-item active"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Kategorie bearbeiten</a>
+                <a href="createuser.php" class="list-group-item"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> User erstellen</a>
+                <a href="edituser.php" class="list-group-item"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> User bearbeiten</a>
                 <a href="fileupload.php" class="list-group-item"><span class="	glyphicon glyphicon-plus" aria-hidden="true"></span> Bilder hochladen</a>
                 <a href="bilder.php" class="list-group-item"><span class="	glyphicon glyphicon-picture" aria-hidden="true"></span> Bilder anzeigen</a>
               </div>

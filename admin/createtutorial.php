@@ -1,18 +1,19 @@
 <?php
   include 'includes/adminheader.php';
   if (isset($_SESSION['logged_in'])) {
+    if ($_SESSION['admin'] == 5) {
     if (isset($_POST['title'])) {
-      $username = $_SESSION['username'];
-      $category = $_POST['category'];
-      $bild = $_POST['bild'];
-      $farbe = $_POST['farbe'];
-      $banner = $_POST['banner'];
-      $beschreibung = $_POST['beschreibung'];
-      $title = $_POST['title'];
-      $titleheader = $_POST['titleheader'];
-      $content = $_POST['content'];
-      $metatags = $_POST['metatags'];
-      $metadesc = $_POST['metadesc'];
+      $username = mysqli_real_escape_string($conn, $_SESSION['username']);
+      $category = mysqli_real_escape_string($conn, $_POST['category']);
+      $bild = mysqli_real_escape_string($conn, $_POST['bild']);
+      $farbe = mysqli_real_escape_string($conn, $_POST['farbe']);
+      $banner = mysqli_real_escape_string($conn, $_POST['banner']);
+      $beschreibung = mysqli_real_escape_string($conn, $_POST['beschreibung']);
+      $title = mysqli_real_escape_string($conn, $_POST['title']);
+      $titleheader = mysqli_real_escape_string($conn, $_POST['titleheader']);
+      $content = mysqli_real_escape_string($conn, $_POST['content']);
+      $metatags = mysqli_real_escape_string($conn, $_POST['metatags']);
+      $metadesc = mysqli_real_escape_string($conn, $_POST['metadesc']);
       if (empty($title) or empty($content)) {
         $_SESSION['error'] = "Titel und Content muss angegeben werden";
       }else {
@@ -42,10 +43,12 @@
            <a href="index.php" class="list-group-item active main-color-bg">
              <span class="glyphicon glyphicon-cog" aria-hidden="true"></span> Dashboard
            </a>
-           <a href="createtutorial.php" class="list-group-item"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Tutorial erstellen</a>
+           <a href="createtutorial.php" class="list-group-item active"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Tutorial erstellen</a>
            <a href="edittutorial.php" class="list-group-item"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Tutorial bearbeiten</a>
            <a href="createcategory.php" class="list-group-item"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Kategorie erstellen</a>
            <a href="editcategory.php" class="list-group-item"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Kategorie bearbeiten</a>
+           <a href="createuser.php" class="list-group-item"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> User erstellen</a>
+           <a href="edituser.php" class="list-group-item"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> User bearbeiten</a>
            <a href="fileupload.php" class="list-group-item"><span class="	glyphicon glyphicon-plus" aria-hidden="true"></span> Bilder hochladen</a>
            <a href="bilder.php" class="list-group-item"><span class="	glyphicon glyphicon-picture" aria-hidden="true"></span> Bilder anzeigen</a>
          </div>
@@ -135,4 +138,5 @@
  </section>
  <?php
 }
+    }
   ?>

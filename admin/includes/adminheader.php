@@ -67,7 +67,7 @@
             <li><a href="createtutorial.php">Tutorial erstellen</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="#">Hallo, <?php echo $_SESSION['username']; ?></a></li>
+            <li><a href="editprofile.php?edit=<?php echo $_SESSION['id'];?>">Hallo, <?php echo $_SESSION['username']; ?></a></li>
             <li><a href="logout.php">Logout</a></li>
           </ul>
         </div><!--/.nav-collapse -->
@@ -78,7 +78,7 @@
       <div class="container">
         <div class="row">
           <div class="col-md-10">
-            <h1><span class="glyphicon glyphicon-cog" aria-hidden="true"></span> Dashboard <small>Manage Your Site</small></h1>
+            <h1><span class="glyphicon glyphicon-cog" aria-hidden="true"></span> Dashboard <small>Manage Our Site</small></h1>
           </div>
           <div class="col-md-2">
             <div class="dropdown create">
@@ -96,30 +96,37 @@
     </header>
     <?php
   }else {
-    if (isset($_POST['username'], $_POST['password'])) {
-      $username = $_POST['username'];
-      $password = $_POST['password'];
-      if (empty($username) or empty($password)) {
-        $error = "Alle Felder werden benötigt";
-      }else {
+    if (isset($_POST['username'], $_POST['password'])) { //Überprüft ob Login gedrückt wurde
+      $username = mysqli_real_escape_string($conn, $_POST['username']);
+      $password = mysqli_real_escape_string($conn, $_POST['password']);
+      if (empty($username) or empty($password)) { // überprüft ob benutzername oder passwort leer ist
+        $_SESSION['error'] = "Alle Felder werden benötigt";
+      }else { // Wenn ausgefüllt
+        //Überprüfen ob es den Benutzernamen schon gibt
         $sql = "SELECT * FROM users WHERE username='$username'";
         $result = mysqli_query($conn, $sql);
-        if (!$row = mysqli_fetch_assoc($result)) {
-          echo "Your username or password is incorrect!";
-        } else {
-          $_SESSION['logged_in'] = true;
-          $_SESSION['id'] = $row['id'];
-          $_SESSION['username'] = $row['username'];
-          header('Location: index.php');
-}
+        if ($row = mysqli_fetch_assoc($result)) {
+          //Existiert
+          $hash_password = $row['password'];
+          $hash = password_verify($password, $hash_password);
+          if ($hash) {
+            //Passwort ist korrekt;
+            $_SESSION['logged_in'] = true;
+            $_SESSION['id'] = $row['id'];
+            $_SESSION['username'] = $row['username'];
+            $_SESSION['admin'] = $row['admin'];
+            header('Location: index.php');
+          }else {
+            //Passwort stimmt nicht überein
+            $_SESSION['error'] = "Benutzername oder Passwort sind nicht korrekt";
+          }
+        }else {
+          //Existiert nicht
+          $_SESSION['error'] = "Benutzername wurde nicht gefunden";
+        }
       }
     }
     ?>
-    <?php
-    if (isset($error)) {
-      echo $error;
-    }
-     ?>
      <html lang="de">
        <head>
          <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
@@ -168,7 +175,7 @@
              <span class="icon-bar"></span>
              <span class="icon-bar"></span>
            </button>
-           <a class="navbar-brand" href="#">DeinTutorial24</a>
+           <a class="navbar-brand" href="../">DeinTutorial24</a>
          </div>
          <div id="navbar" class="collapse navbar-collapse">
            <ul class="nav navbar-nav">
@@ -183,10 +190,20 @@
       <div class="container">
         <div class="row">
           <div class="col-md-4 col-md-offset-4">
+            <?php
+            if (isset($_SESSION['error'])) {
+              ?>
+              <div class="alert alert-danger" role="alert" style="text-align: center">
+               <strong>Fehler!</strong> <?php echo $_SESSION['error']; ?>!
+             </div>
+              <?php
+              unset($_SESSION['error']);
+            }
+             ?>
             <form id="login" method="post" action="index.php" class="well">
                   <div class="form-group">
-                    <label>Email Address</label>
-                    <input type="text" class="form-control" name="username" placeholder="Enter Email">
+                    <label>Benutzername</label>
+                    <input type="text" class="form-control" name="username" placeholder="Benutzername">
                   </div>
                   <div class="form-group">
                     <label>Password</label>
