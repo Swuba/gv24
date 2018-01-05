@@ -13,6 +13,7 @@
     $sql = "SELECT * FROM tutorials WHERE name_link='$tutorial'";
     $result = $conn->query($sql);
     $row = mysqli_fetch_assoc($result);
+    $date = $row['erstellt'];
     ?>
     <!DOCTYPE html>
     <html lang="de">
@@ -76,6 +77,18 @@
       </div>
     </div>
    </article>
+   <div class="container">
+     <div class="row">
+       <div class="col-xs-2">
+       </div>
+       <div class="col-xs-8" style="text-align: center">
+         Erstellt von <?php echo $row['erstelltvon']; ?> am <?php echo date("d.m.Y", strtotime(str_replace('-','/', $date))); ?>
+       </div>
+       <div class="col-xs-2">
+
+       </div>
+     </div>
+   </div>
    <article class="tutorial">
      <div class="container">
        <div class="row">
