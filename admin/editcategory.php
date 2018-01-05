@@ -19,6 +19,10 @@
       $username = mysqli_real_escape_string($conn, $_SESSION['username']);
       $sql = "UPDATE categories SET name = '$name', titleheader='$titleheader', banner='$banner', beschreibung='$beschreibung', bild='$bild', farbe='$farbe', bearbeitetvon='$username' WHERE id='$id'";
       $result = $conn->query($sql);
+      $_SESSION['success'] = $name." erfolgreich bearbeitet";
+      ?>
+      <meta http-equiv="refresh" content="0; URL=index.php">
+      <?php
     }
     if(isset($_POST['category'])){
       mysqli_real_escape_string($conn, $category = $_POST['category']);

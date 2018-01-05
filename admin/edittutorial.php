@@ -27,6 +27,10 @@
         titleheader='$titleheader', beschreibung='$beschreibung', content='$content', bild='$bild', banner='$banner',
         farbe='$farbe', metatags='$metatags', metadesc='$metadesc'  WHERE id='$id'";
         $result = $conn->query($sql);
+        $_SESSION['success'] = $title." erfolgreich bearbeitet";
+        ?>
+        <meta http-equiv="refresh" content="0; URL=index.php">
+        <?php
       }
       if (isset($_POST['tutorial'])) {
         $tutorial = mysqli_real_escape_string($conn, $_POST['tutorial']);
@@ -72,7 +76,7 @@
                        </div>
                        <div class="form-group">
                          <label>Seiteninhalt</label>
-                         <textarea name="content" class="form-control"><?php echo $row['content']; ?></textarea>
+                         <textarea rows="25" cols="100" name="content" class="form-control"><?php echo htmlentities($row['content'], ENT_QUOTES) ?></textarea>
                        </div>
                        <div class="form-group">
                          <label>Tutorialbeschreibung</label>
