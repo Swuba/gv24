@@ -4,13 +4,28 @@ session_start();
 $directoryURI = $_SERVER['REQUEST_URI'];
 $path = parse_url($directoryURI, PHP_URL_PATH);
 $components = explode('/', $path);
-$first_part = $components[1];
+$first_part = $components[3];
 ?>
 <!DOCTYPE html>
 <html lang="de">
   <head>
     <meta charset="utf-8">
-    <title>Home</title>
+    <title><?php
+    switch ($first_part) {
+      case 'kategorie.php':
+        echo "DeinTutorial24 - Kategorie";
+        break;
+      case 'index.php':
+        echo "DeinTutorial24";
+        break;
+      case 'tutorials.php':
+        echo "DeinTutorial24 - Tutorials";
+        break;
+      default:
+        echo "DeinTutorial24";
+        break;
+    }
+     ?></title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Eine Seite für alles">
     <meta name="keywords" content="html, css, php, mysql, raspberry pi, java,

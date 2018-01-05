@@ -4,7 +4,7 @@
       <div class="col-xs-12">
         <div class="footer-box">
           <a href="../index.php"><p>
-            Hydra
+            DeinTutorial24
           </p></a>
         </div>
       </div>

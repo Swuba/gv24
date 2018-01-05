@@ -4,7 +4,7 @@ session_start();
 $directoryURI = $_SERVER['REQUEST_URI'];
 $path = parse_url($directoryURI, PHP_URL_PATH);
 $components = explode('/', $path);
-$first_part = $components[1];
+$first_part = $components[2];
 ?>
 <!DOCTYPE html>
 <html lang="de">
@@ -17,7 +17,22 @@ $first_part = $components[1];
       });
     </script>
     <meta charset="utf-8">
-    <title>Home</title>
+    <title><?php
+    switch ($first_part) {
+      case '':
+        echo "DeinTutorial24";
+        break;
+      case 'index.php':
+        echo "DeinTutorial24";
+        break;
+      case 'tutorials.php':
+        echo "DeinTutorial24 - Tutorials";
+        break;
+      default:
+        echo "DeinTutorial24";
+        break;
+    }
+     ?></title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="description" content="Eine Seite für alles">
