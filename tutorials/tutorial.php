@@ -82,7 +82,10 @@
        <div class="col-xs-2">
        </div>
        <div class="col-xs-8" style="text-align: center">
-         Erstellt von <?php echo $row['erstelltvon']; ?> am <?php echo date("d.m.Y", strtotime(str_replace('-','/', $date))); ?>
+         <button type="button" class="btn btn-secondary btn-sm" data-toggle="tooltip" data-placement="bottom" title="<?php echo date("h:i", strtotime(str_replace('-','/', $date))); ?>">
+          Erstellt von <strong><?php echo $row['erstelltvon']; ?></strong> am <strong><?php echo date("d.m.Y", strtotime(str_replace('-','/', $date))); ?></strong>
+        </button>
+
        </div>
        <div class="col-xs-2">
 

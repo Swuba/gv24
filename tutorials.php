@@ -18,8 +18,7 @@
     <div class="row">
       <div class="col-xs-12">
         <h2>Kategorien</h2>
-        <h3 class="index-courses-subheader">Hier findest du alle möglichen Tutorials, wie z.B zu dem Raspberry Pi,
-          Programmiersprachen, API nutzungen von z.B.von League of Legend und vieles mehr...</h3>
+        <h3 class="index-courses-subheader">Hier findest du alle Kategorien, zu denen bisher ein Tutorial erstellt wurde.</h3>
         <div class="row">
             <div class="col-xs-6">
               <?php

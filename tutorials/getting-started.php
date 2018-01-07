@@ -16,10 +16,16 @@
 
       </div>
       <div class="col-xs-8">
-
         <br>
-        <h2 style="text-align: center">Was ist ein Raspberry Pi?</h2>
+        <h2 style="text-align: center">Was brauche ich für den Einstieg?</h2>
         <br>
+        <?php
+        /*
+        <p>
+        Der Raspberry Pi ist mit ca.35€ ein kleiner, günstiger Minicomputer, der ideal zum Experimentieren geeignet ist. Seine Einsatzbereiche sind allerdings fast grenzenlos. Man kann ihn als Webserver, Wetterstation, NAT, Multimediasystem und vieles mehr nutzen.
+        </p>
+        */
+         ?>
         <p>
           Beim Raspberry Pi handelt es sich um einen Minirechner, der auf einer
           Kreditkarten-großen Platine untergebracht ist. Er wurde von der
@@ -29,11 +35,25 @@
         <p>
         <ul class="kapitel-auswahl">
           <h3>Hardware</h3>
-          <li><a href="#">Raspberry Pi 3*</a></li>
-          <li><a href="#">Netzteil*</a></li>
-          <li><a href="#">SD-Karte*</a></li>
-          <li><a href="#">Gehäuse*</a>(optional)</li>
-          <li><a href="#">Lan-Kabel*</a>(Falls kein W-lan)</li>
+          <li>
+            <strong><a href="http://amzn.to/2AyuVtu">Raspberry Pi 3*</a></strong>:
+            In den Tutorials benutzen wir den aktuellsten Raspberry Pi. Das ist momentan das Modell 3b. <br>
+            Dieser hat 4x 1,2GHz, 1GB Ram und ein intigriertes WLan- und Bluetooth Modul.<br>
+            Zusätzlich hat man noch vier usb-ports und einen HMDI anschluss.
+           </li>
+          <li>
+            <strong><a href="http://amzn.to/2lYLV6Z">Netzteil*</a></strong>:
+            Damit der Raspberry Pi genug Strom bekommt, brauchst du ein Netzteil mit MicroUSB stecker.<br>
+
+          </li>
+          <li>
+            <strong><a href="http://amzn.to/2AyLPIl">SD-Karte*</a></strong>:
+            Die SD Karte wird benötigt, um den Raspberry Pi  mit einem Betriebssystem auszustatten.<br>
+            Die minimal benötigte größe unterscheidet sich zwar von Betriebssystem zu Betriebssystem, sollte aber nicht unter 2GB sein.
+            Die maximale Größe ist 32GB.<br>
+            Ich würde euch deshalb eine 16GB SD Karte empfehlen. Diese reicht vollkommen aus. Falls nicht, kannst du auch eine <a href="http://amzn.to/2AwbPo2">externe Festplatte</a> anschließen.
+          </li>
+          <li><a href="http://amzn.to/2lZhVb2">Gehäuse*</a>(optional)</li>
         </ul>
       </p>
         <br><hr>

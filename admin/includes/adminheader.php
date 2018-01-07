@@ -20,7 +20,7 @@
       });
     </script>
         <meta charset="utf-8">
-        <title>Home</title>
+        <title>DeinTutorial24 - Admintool</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="description" content="Eine Seite für alles">
         <meta name="keywords" content="html, css, php, mysql, raspberry pi, java,
