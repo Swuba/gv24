@@ -14,6 +14,9 @@
             if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
               $_SESSION['error'] = "Email ist nicht korrekt";
             }else {
+              if (strlen($username) > 25 or strlen($email) > 50) {
+                $_SESSION['error'] = "Benutzername oder email ist zu lang!";
+              }else{
               $sqlusername = "SELECT username FROM users WHERE username='$username'";
               $sqlemail = "SELECT email FROM users WHERE email='$email'";
               $resultusername = mysqli_query($conn, $sqlusername);
@@ -27,6 +30,7 @@
                 $sql = "INSERT INTO users (username,email, password, admin) VALUES ('$username','$email', '$hash_password', '$adminlevel')";
                 $result = mysqli_query($conn, $sql);
               }
+            }
             }
           }
         }

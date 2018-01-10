@@ -8,7 +8,7 @@
       $sql2 = "ALTER TABLE `categories` AUTO_INCREMENT=1";
       $result2 = $conn->query($sql2);
     }
-    if (isset($_POST['name'])) {
+    if (isset($_POST['edit'])) {
       $id = mysqli_real_escape_string($conn, $_POST['id']);
       $name = mysqli_real_escape_string($conn, $_POST['name']);
       $titleheader = mysqli_real_escape_string($conn, $_POST['titleheader']);
@@ -24,7 +24,7 @@
       <meta http-equiv="refresh" content="0; URL=index.php">
       <?php
     }
-    if(isset($_POST['category'])){
+    if(isset($_POST['select'])){
       mysqli_real_escape_string($conn, $category = $_POST['category']);
       $sql = "SELECT * FROM categories WHERE id='$category'";
       $result = $conn->query($sql);
@@ -83,8 +83,8 @@
                          <input type="text" name="banner" class="form-control" value="<?php echo $row['banner']; ?>">
                        </div>
                      <div class="modal-footer">
-                       <button type="delete" name="delete" class="btn btn-danger">Kategorie Löschen</button>
-                       <button type="submit" class="btn btn-primary">Kategorie bearbeiten</button>
+                       <button type="delete" onclick="confirm('Löschen?')" name="delete" class="btn btn-danger">Kategorie Löschen</button>
+                       <button type="submit" name="edit" class="btn btn-primary">Kategorie bearbeiten</button>
                      </div>
                  </form>
                 </div>
@@ -141,7 +141,7 @@
                         </select>
                        </div>
                      <div class="modal-footer">
-                       <button type="submit" class="btn btn-primary">Kategorie auswählen</button>
+                       <button type="submit" name="select" class="btn btn-primary">Kategorie auswählen</button>
                      </div>
                  </form>
                 </div>
