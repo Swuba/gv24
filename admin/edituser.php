@@ -11,12 +11,16 @@
         if (empty($username) or empty($email)) {
           $_SESSION['error'] = "Kein Feld darf leer sein";
         }else {
+          if (strlen($username) > 25 or strlen($email) > 50) {
+            $_SESSION['error'] = "Benutzername oder email ist zu lang!";
+          }else{
           $sql = "UPDATE users SET username='$username', email='$email', admin='$admin' WHERE id='$id'";
           $result = mysqli_query($conn, $sql);
           $_SESSION['success'] = "Profil wurde geändert";
           ?>
           <meta http-equiv="refresh" content="0; URL=index.php">
           <?php
+        }
         }
       }
       if (isset($_GET['username'])) {

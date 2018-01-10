@@ -8,18 +8,22 @@
       $result = mysqli_query($conn, $sql);
       $row = mysqli_fetch_assoc($result);
       if (isset($_POST['edit'])) {
-        $username = $_POST['username'];
-        $email = $_POST['email'];
-        $admin = $_POST['adminlevel'];
+        $username = mysqli_real_escape_string($conn, $_POST['username']);
+        $email = mysqli_real_escape_string($conn, $_POST['email']);
+        $admin = mysqli_real_escape_string($conn, $_POST['adminlevel']);
         if (empty($username) or empty($email)) {
           $_SESSION['error'] = "Kein Feld darf leer sein";
         }else {
+          if (strlen($username) > 25 or strlen($email) > 50) {
+            $_SESSION['error'] = "Benutzername oder email ist zu lang!";
+          }else{
           $sql = "UPDATE users SET username='$username', email='$email', admin='$admin' WHERE id='$id'";
           $result = mysqli_query($conn, $sql);
           $_SESSION['success'] = "Profil wurde geändert";
           ?>
           <meta http-equiv="refresh" content="0; URL=index.php">
           <?php
+        }
         }
       }
       ?>

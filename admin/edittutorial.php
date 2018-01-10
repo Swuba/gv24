@@ -8,8 +8,12 @@
         $result = $conn->query($sql);
         $sql2 = "ALTER TABLE `tutorials` AUTO_INCREMENT=1";
         $result2 = $conn->query($sql2);
+        $_SESSION['success'] = "Tutorial wurde erfolgreich gelöscht";
+        ?>
+        <meta http-equiv="refresh" content="0; URL=index.php">
+        <?php
       }
-      if (isset($_POST['title'])) {
+      if (isset($_POST['edit'])) {
         $username = mysqli_real_escape_string($conn, $_SESSION['username']);
         $id = $_POST['id'];
         $bild = mysqli_real_escape_string($conn, $_POST['bild']);
@@ -106,11 +110,12 @@
                        <?php
                        if ($_SESSION['admin'] >= 4) {
                          ?>
-                            <button type="delete" name="delete" class="btn btn-danger">Tutorial Löschen</button>
+
+                            <button type="delete" onclick="confirm('Löschen?')" name="delete" class="btn btn-danger">Tutorial Löschen</button>
                          <?php
                        }
                         ?>
-                       <button type="submit" class="btn btn-primary">Tutorial bearbeiten</button>
+                       <button type="submit" name="edit" class="btn btn-primary">Tutorial bearbeiten</button>
                      </div>
                  </form>
                 </div>
