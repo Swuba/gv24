@@ -46,6 +46,7 @@
       ga('create', 'UA-87147130-1', 'auto');
       ga('send', 'pageview');
     </script>
+    <script src="http://cdn.ckeditor.com/4.6.1/standard/ckeditor.js"></script>
       </head>
       <body>
         <!-- Navbar -->
@@ -203,7 +204,7 @@
             <form id="login" method="post" action="index.php" class="well">
                   <div class="form-group">
                     <label>Benutzername</label>
-                    <input type="text" class="form-control" name="username" placeholder="Benutzername">
+                    <input type="text" autofocus class="form-control" name="username" placeholder="Benutzername">
                   </div>
                   <div class="form-group">
                     <label>Password</label>

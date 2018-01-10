@@ -101,7 +101,7 @@
                   </div>
                   <div class="form-group">
                     <label>Seiteninhalt</label>
-                    <textarea rows="25" cols="100" name="content" class="form-control" placeholder="Seiteninhalt"></textarea>
+                    <textarea id="editor1" rows="25" cols="100" name="content" class="form-control" placeholder="Seiteninhalt"></textarea>
                   </div>
                   <div class="form-group">
                     <label>Tutorialbeschreibung</label>
@@ -137,6 +137,9 @@
      </div>
    </div>
  </section>
+ <script>
+   CKEDITOR.replace( 'editor1' );
+</script>
  <?php
 }
     }

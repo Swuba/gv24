@@ -36,7 +36,7 @@ $first_part = $components[3];
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <!--css -->
     <link rel="stylesheet" type="text/css" href="https://deintutorial24.de/css/style.css">
-    <link rel="stylesheet" type="text/css" href="https://deintutorial24.de//css/dist/css/lightbox.css">
+    <link rel="stylesheet" type="text/css" href="https://deintutorial24.de/css/dist/css/lightbox.css">
     <!--google-fonts -->
     <link href="https://fonts.googleapis.com/css?family=Saira" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
