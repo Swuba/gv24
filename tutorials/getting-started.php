@@ -48,8 +48,10 @@
   Dort downloadest du dir dann <b>RASPBIAN STRETCH LITE</b>.<br>
   Während das Betriebssystem heruntergeladen wird, kannst du dir auch schonmal das Programm <a href="https://etcher.io/">Etcher</a> herunterladen und installieren. Dieses wird benötigt um das Betriebssystem auf der SD karte zu installieren.<br>
   Wenn beide Downloads abgeschlossen sind, steckst du deine SD karte in dein SD-kartenlesegerät. Wenn di KArte erkannt wird, öffnest du <b>Etcher</b>.<br>
+  <img src="img/etcher.png" alt="sdfs">
   Dort klickst du dann auf <strong>Select Image</strong>, wo du dann das gedownloadete Betriebsystem auswählst.<br>
-  Bei <strong>Select drive</strong> wählst du dann deine SD-Karte aus.<br>
+  Bei <strong>Select drive</strong> wählst du dann deine SD-Karte aus, falls sie nicht schon automatisch erkannt wurde, wie es bei mir der Fall war.<br>
+  <img src="img/etcher2.png" alt="">
   Danach kannst du dann auf <strong>Flash!</strong> drücken und das Programm sollte dann den Rest erledigen.<br>
   Damit wäre dann der erste Schritt schonmal erledigt.
 </p>
@@ -62,7 +64,14 @@
 <p>
   Da ssh standartgemäss deaktiviert ist, musst du es zunächst durch einen kleinen Trick aktivieren.<br>
   Dazu steckst du deine Micro SD-Karte nochmal in dein SD-kartenleser. Jetzt navigierst du zu der SD-Karte und öffnest im explorer Menü den Punkt <b>Ansicht</b>. Dort aktivierst du den Punkt <b>Dateinamenerweiterungen</b>.<br>
-  Dann erstellst du eine neue Textdatei in dem Hauptverzeichniss. Diese nennst du <b>ssh</b> und entfernst das <b>.txt</b> am ende. Mit klick auf bestätigung, dass du die Datei wirklich so nennen willst, ist SSH aktiviert.
+  <img src="img/sshdateiendung.png" width="800px" alt="">
+  Dann erstellst du eine neue Textdatei in dem Hauptverzeichniss.<br>
+  <img src="img/sshordner.png" alt="">
+  Diese nennst du <b>ssh</b> und entfernst das <b>.txt</b> am ende.<br>
+  <img src="img/sshtxt.png" alt=""><br>
+  <img src="img/ssh.png" alt=""><br>
+  <img src="img/sshconf.png" alt=""><br>
+  Mit klick auf bestätigung, dass du die Datei wirklich so nennen willst, ist SSH aktiviert.<br>
 </p>
 <h2>Verkabelung</h2>
 <p>
@@ -74,7 +83,7 @@
   Um dich mit dem Pi verbinden zu können, benötigen wir jetzt die IP des Pi´s. Diese wissen wir allerdings nicht.<br>
   Um diese herauszufinden, musst du dich auf deinem Router anmelden und dort die IP raussuchen.<br>
   Bei den meisten routern ist die IP des Routers <a href="192.168.0.1">192.168.0.1</a>. Falls du einen CBN Router von Vodafone hast, bekommst du <a href="#">hier</a> eine kleine Anleitung.<br>
-  
+
 </p>
       </div>
       <div class="col-xs-2">

@@ -80,7 +80,7 @@
                        </div>
                        <div class="form-group">
                          <label>Seiteninhalt</label>
-                         <textarea id="editor1" rows="25" cols="100" name="content" class="form-control"><?php echo htmlentities($row['content'], ENT_QUOTES) ?></textarea>
+                         <textarea id="editor1" name="content" class="form-control"><?php echo htmlentities($row['content'], ENT_QUOTES) ?></textarea>
                        </div>
                        <div class="form-group">
                          <label>Tutorialbeschreibung</label>
