@@ -24,6 +24,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <meta name="description" content="<?php echo $row['metadesc']; ?>">
         <meta name="keywords" content="<?php echo $row['metatags']; ?>">
+        <meta name="author" content="<?php echo $row['erstelltvon'];?>">
         <!--bootstrap -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
