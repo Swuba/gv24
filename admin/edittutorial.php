@@ -4,10 +4,30 @@
     if ($_SESSION['admin'] >= 2) {
       if (isset($_POST['delete'])) {
         $id = mysqli_real_escape_string($conn, $_POST['id']);
+
+        $sql4 = "SELECT nummer, category FROM tutorials WHERE id='$id'";
+        $result4 = $conn->query($sql4);
+        $row4 = mysqli_fetch_assoc($result4);
+        $nummer = $row4['nummer'];
+        $category = $row4['category'];
+
         $sql = "DELETE FROM tutorials WHERE id='$id'";
         $result = $conn->query($sql);
-        $sql2 = "ALTER TABLE `tutorials` AUTO_INCREMENT=1";
+
+        $sql2 = "SELECT * FROM tutorials WHERE nummer>='$nummer' and category='$category'";
         $result2 = $conn->query($sql2);
+        if ($result2->num_rows > 0) {
+          while ($row2 = mysqli_fetch_assoc($result2)) {
+            $nummern = $row2['nummer'];
+            $sql6 = "UPDATE tutorials SET nummer=nummer-1 WHERE nummer='$nummern'";
+            $result6 = $conn->query($sql6);
+          }
+        }
+        /*
+        $sql3 = "ALTER TABLE `tutorials` AUTO_INCREMENT=1";
+        $result3 = $conn->query($sql3);
+        */
+
         $_SESSION['success'] = "Tutorial wurde erfolgreich gelöscht";
         ?>
         <meta http-equiv="refresh" content="0; URL=index.php">
