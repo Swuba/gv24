@@ -49,6 +49,7 @@
   Während das Betriebssystem heruntergeladen wird, kannst du dir auch schonmal das Programm <a href="https://etcher.io/">Etcher</a> herunterladen und installieren. Dieses wird benötigt um das Betriebssystem auf der SD karte zu installieren.<br>
   Wenn beide Downloads abgeschlossen sind, steckst du deine SD karte in dein SD-kartenlesegerät. Wenn di KArte erkannt wird, öffnest du <b>Etcher</b>.<br>
   <img src="img/etcher.png" alt="sdfs">
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/75NTYlNV-CI?rel=0&amp;showinfo=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
   Dort klickst du dann auf <strong>Select Image</strong>, wo du dann das gedownloadete Betriebsystem auswählst.<br>
   Bei <strong>Select drive</strong> wählst du dann deine SD-Karte aus, falls sie nicht schon automatisch erkannt wurde, wie es bei mir der Fall war.<br>
   <img src="img/etcher2.png" alt="">

@@ -46,7 +46,7 @@
       ga('create', 'UA-87147130-1', 'auto');
       ga('send', 'pageview');
     </script>
-    <script src="http://cdn.ckeditor.com/4.6.1/standard/ckeditor.js"></script>
+    <script src="//cdn.ckeditor.com/4.8.0/standard/ckeditor.js"></script>
       </head>
       <body>
         <!-- Navbar -->
